@@ -1,0 +1,22 @@
+﻿{
+  "name" : "impactmade",
+  "version": "1.0.0-*",
+  "description": "ImpactMade",
+  "copyright": "ImpactMade",
+  "authors": [ "Pedro" ],
+  "compileOnSave": true,
+  "compilerOptions": 
+  {
+    "declaration": true,
+    "module": "amd",
+    "noEmitOnError": true,
+    "noImplicitAny": false,
+    "removeComments": true,
+    "outFile": "../../js/textBoxCategoryVariable.js",
+    "sourceMap": false,
+    "target": "es5"
+  },
+  "include": [
+    "./*.ts"
+  ]
+}

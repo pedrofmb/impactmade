@@ -1,0 +1,28 @@
+div.boxElement > ul:hover{
+    border: solid 1px #0088cc;
+}
+
+div.boxElement > ul {
+    margin: 4px !important; /* 4px */
+    padding: 2px !important;
+    width: 250px !important;
+    height: 125px !important;
+}
+
+div.boxElement > ul > div > li > a {
+    border-bottom: 0px solid white !important;
+}
+
+div.boxElement > ul > div > li > a:link {
+    text-decoration: none;
+}
+
+div.boxElement > ul > div > a {
+    border-bottom: 0px solid white !important;
+    color: black;
+}
+
+div.boxElement > ul > div > a:link {
+    text-decoration: none;
+    color: black;
+}

@@ -1,0 +1,11 @@
+*.db
+*.user
+.vs
+.DS_Store
+desktop.ini
+Thumbs.db
+npm-debug.log
+/packages
+/node_modules
+**/npm-debug.log
+[~][$]*

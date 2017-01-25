@@ -1,0 +1,30 @@
+<Logic >
+		<Say voice="man" language="en" text="Good morning, this is an evaluation survey for our ImpactMade employees.">
+		</Say>
+		<Say voice="man" language="en" text="Enter 1 to 5 where 1 is a very bad service, 2 if it was bad, 3 if it was regular, 4 if it was good and 5 if it was very good.">
+		</Say>
+		<CollectDigits numDigits="1" finishOnKey="#" timeout="5" variable="value">
+		</CollectDigits>
+	<If variable="value" category="default" condition="equals" value="1">
+		<Say voice="man" language="en" text="You selected: very bad.">
+		</Say>
+</If>
+	<If variable="value" category="default" condition="equals" value="2">
+		<Say voice="man" language="en" text="You selected: bad.">
+		</Say>
+</If>
+	<If variable="value" category="default" condition="equals" value="3">
+		<Say voice="man" language="en" text="You selected: regular.">
+		</Say>
+</If>
+	<If variable="value" category="default" condition="equals" value="4">
+		<Say voice="man" language="en" text="You selected: Good.">
+		</Say>
+</If>
+	<If variable="value" category="default" condition="equals" value="5">
+		<Say voice="man" language="en" text="You selected: Very good.">
+		</Say>
+</If>
+		<Say voice="man" language="en" text="Thank you for your time. Good bye.">
+		</Say>
+</Logic>

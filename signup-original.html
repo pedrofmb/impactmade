@@ -1,0 +1,1797 @@
+﻿ <!DOCTYPE html>
+<html>
+
+    
+    <head>
+
+        <!-- Basic -->
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+        <title>Create Account | Impact Made Communications</title>
+
+        <meta name="keywords" content="HTML5 Template" />
+        <meta name="description" content="Porto - Responsive HTML5 Template">
+        <meta name="author" content="okler.net">
+
+        <!-- Favicon -->
+        <link rel="shortcut icon" href="img/logo-icon-trans2.png" type="image/x-icon" />
+        <link rel="apple-touch-icon" href="img/apple-touch-icon.png">
+
+        <!-- Mobile Metas -->
+        <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+        <!-- Web Fonts  -->
+        <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700,800%7CShadows+Into+Light" rel="stylesheet" type="text/css">
+
+        <!-- Vendor CSS -->
+        <link rel="stylesheet" href="vendor/bootstrap/css/bootstrap.min.css">
+        <link rel="stylesheet" href="vendor/font-awesome/css/font-awesome.min.css">
+        <link rel="stylesheet" href="vendor/simple-line-icons/css/simple-line-icons.min.css">
+        <link rel="stylesheet" href="vendor/owl.carousel/assets/owl.carousel.min.css">
+        <link rel="stylesheet" href="vendor/owl.carousel/assets/owl.theme.default.min.css">
+        <link rel="stylesheet" href="vendor/magnific-popup/magnific-popup.min.css">
+
+        <!-- Theme CSS -->
+        <link rel="stylesheet" href="css/theme.css">
+        <link rel="stylesheet" href="css/theme-elements.css">
+        <link rel="stylesheet" href="css/theme-blog.css">
+        <link rel="stylesheet" href="css/theme-shop.css">
+        <link rel="stylesheet" href="css/theme-animate.css">
+
+        <!-- Skin CSS -->
+        <link rel="stylesheet" href="css/skins/default.css">
+
+        <!-- Theme Custom CSS -->
+        <link rel="stylesheet" href="css/custom.css">
+
+        <!-- Head Libs -->
+        <script type="text/javascript" src="js/admin.js"></script>
+        <script src="vendor/modernizr/modernizr.min.js"></script>
+        <script src="vendor/jquery/jquery.min.js"></script>
+        <script src="vendor/jquery.appear/jquery.appear.min.js"></script>
+        <script src="vendor/jquery.easing/jquery.easing.min.js"></script>
+        <script src="vendor/jquery-cookie/jquery-cookie.min.js"></script>
+        <script src="vendor/bootstrap/js/bootstrap.min.js"></script>
+        <script src="vendor/common/common.min.js"></script>
+        <script src="vendor/jquery.validation/jquery.validation.min.js"></script>
+        <script src="vendor/jquery.stellar/jquery.stellar.min.js"></script>
+        <script src="vendor/jquery.easy-pie-chart/jquery.easy-pie-chart.min.js"></script>
+        <script src="vendor/jquery.gmap/jquery.gmap.min.js"></script>
+        <script src="vendor/jquery.lazyload/jquery.lazyload.min.js"></script>
+        <script src="vendor/isotope/jquery.isotope.min.js"></script>
+        <script src="vendor/owl.carousel/owl.carousel.min.js"></script>
+        <script src="vendor/magnific-popup/jquery.magnific-popup.min.js"></script>
+        <script src="vendor/vide/vide.min.js"></script>
+
+        <style>
+             h1.fontColor {
+                 color: white;
+             }
+             h1.selected{
+                 background: #0088cc;
+                 padding: 5px;
+                 border-radius: 5px
+             }
+
+            /*div.most-popular.most-popular-red > h3 , div.most-popular.most-popular-red > h3 > span {
+                background: #dd2400 !important;
+                border-color: #d22200 !important;
+            }
+            div.most-popular.most-popular-red {
+                border-color: #d22200 !important;
+            }
+
+            div.most-popular.most-popular-blue > h3 , div.most-popular.most-popular-blue > h3 > span {
+                background: #008fc5 !important;
+                border-color: #08b !important;
+            }
+            div.most-popular.most-popular-blue {
+                border-color: #08b !important;
+            }
+
+            div.most-popular.most-popular-green > h3 , div.most-popular.most-popular-green > h3 > span {
+                background: #3bb44a !important;
+                border-color: #38ab46 !important;
+            }
+            div.most-popular.most-popular-green {
+                border-color: #38ab46 !important;
+            }*/
+
+            h3.planNumberSelected, h3.planNumberSelected > span {
+                background: #008fc5 !important; border-color: #008fc5 !important;
+            }
+
+            h3.planNumberUnselected, h3.planNumberUnselected > span {
+                background: #adad85 !important; border-color: #adad85 !important;
+            }
+
+            
+        </style>
+        <script type="text/javascript">
+            $(function () {
+                if (localStorage["x-token"] != null) {
+                    var user = localStorage["email"];
+                    $(".otherLogin").addClass("hidden");
+                    $("#mainNav").html("<li><a href='manage.html'>My numbers</a></li><li><a href='reports.html'>Reports</a></li><li class='dropdown'><a id='userTab' class='dropdown-toggle' href=''>" + user + "</a><ul class='dropdown-menu'><li><a href='myaccount.html'>Account</a></li><li><a href='billing.html'>Billing</a></li><li><a href='javascript:Logout();'>Logout</a></li></ul></li>");
+                }
+            });
+        </script>
+
+    </head>
+
+
+<body>
+
+    <div class="body">
+        <header id="header" data-plugin-options='{"stickyEnabled": true, "stickyEnableOnBoxed": true, "stickyEnableOnMobile": true, "stickyStartAt": 57, "stickySetTop": "-57px", "stickyChangeLogo": true}'>
+            <div class="header-body">
+                <div class="header-container container">
+                    <div class="header-row">
+                        <div class="header-column">
+                            <div class="header-logo">
+                                <a href="index.html">
+                                    <img alt="Porto" width="240" height="60" data-sticky-width="160" data-sticky-height="40" data-sticky-top="33" src="img/logo.png">
+                                </a>
+                            </div>
+                        </div>
+                        <div class="header-column">
+                            <div class="header-row">
+                                <nav class="header-nav-top">
+                                    <ul class="nav nav-pills">
+                                        <li class="otherLogin"><a href="login.html"><i class="fa fa-user"></i> Business</a></li>
+                                        <li class="otherLogin"><a href="login.html"><i class="fa fa-user"></i> Personal</a></li>
+                                        <li>
+                                            <span class="ws-nowrap" style="color: black; font-size: 20px"><i class="fa fa-phone"></i> +1 855-804-0420</span>
+                                        </li>
+                                    </ul>
+                                </nav>
+                            </div>
+                            <div class="header-row">
+                                <div class="header-nav">
+                                    <button class="btn header-btn-collapse-nav" data-toggle="collapse" data-target=".header-nav-main">
+                                        <i class="fa fa-bars"></i>
+                                    </button>
+                                    <div class="header-nav-main header-nav-main-effect-1 header-nav-main-sub-effect-1 collapse">
+                                        <nav>
+                                            <ul class="nav nav-pills" id="mainNav">
+                                                <li class="hidden">
+                                                    <a class="" href="index.html">
+                                                        HOME
+                                                    </a>
+                                                </li>
+                                                <li class="">
+                                                    <a class="" href="business.html">
+                                                        BUSINESS
+                                                    </a>
+                                                </li>
+                                                <li class="">
+                                                    <a class="" href="personal.html">
+                                                        PERSONAL
+                                                    </a>
+                                                </li>
+                                                <li class="dropdown mega-menu-item">
+                                                    <a class="dropdown-toggle" href="#">
+                                                        RESOURCES
+                                                    </a>
+                                                    <ul class="dropdown-menu">
+                                                        <div class="mega-menu-content">
+                                                            <div class="row" style="width: 190px;">
+
+                                                                <ul class="sub-menu" style="width: 190px; list-style-type: none; ">
+                                                                    <!--<li><a href="#">VoIP Quality Test</a></li>-->
+                                                                    <li><a href="#">IM FAQ</a></li>
+                                                                    <!--<li><a href="#">International Rates</a></li>-->
+                                                                </ul>
+
+                                                            </div>
+                                                        </div>
+                                                    </ul>
+                                                </li>
+                                                <li class="">
+                                                    <a class="hidden" href="demo.html">
+                                                        DEMO
+                                                    </a>
+                                                </li>
+                                                <li class="">
+                                                    <a class="hidden" href="howitwork&features.html">
+                                                        HOW IT WORKS & FEATURES
+                                                    </a>
+                                                </li>
+                                                <li class="colorSpecial">
+                                                    <a class="" href="signup.html">
+                                                        SIGN UP
+                                                    </a>
+                                                </li>
+                                                <li class="hidden">
+                                                    <a class="" href="login.html">
+                                                        LOGIN
+                                                    </a>
+                                                </li>
+                                                <li class="">
+                                                    <a class="" href="contact-us.html">
+                                                        CONTACT US
+                                                    </a>
+                                                </li>
+                                            </ul>
+                                        </nav>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <div role="main" class="main">
+            <section class="page-header align-center" style="background-image: url(img/section3.jpg); border-bottom-color: transparent; border-top-color: transparent !important; height: 125px">
+                <div class="container">
+                    <div class="col-md-12">
+                        <!--<h1>Create Account</h1>-->
+                        <a href="#" id="scream1" style="padding-right: 20px"><h1 class="fontColor selected" style="border-bottom-color: transparent; font-size: 200%">Select Plan</h1></a>
+                        <a href="#" id="scream2" style="padding-right: 20px"><h1 class="fontColor" style="border-bottom-color: transparent; font-size: 200%">Choose Number</h1></a>
+                        <a href="#" id="scream3"><h1 class="fontColor" style="border-bottom-color: transparent; font-size: 200%">Create Account</h1></a>
+                    </div>
+                </div>
+            </section>
+
+
+            <div class="container">
+
+                <div class="container" id="ContentScream0">
+                    <div class="row">
+                        <!--<div class="col-md-12 ">
+                            <div id="jTreeUI"></div>
+                        </div>-->
+                        <section class="main">
+
+
+                            <h1 align="center" style="font-size: 40px; font-weight: 400; font-family: inherit">Sign Up Instantly for ImpactMade</h1>
+                            <h2 align="center" style="color: #0088cc; font-family: inherit; font-size: 30px">
+                                No Long Term Contracts. <b>Each impact are equal to a MIN or SMS</b>
+                            </h2>
+                            <section class="main">
+                                <div class="row">
+
+                                    <div class="pricing-table">
+                                        <div class="col-md-3 col-sm-6">
+                                            <div class="plan" val="259" id="redPlan">
+                                                <h3 name="h3Red">MAX<span>$259</span></h3>
+                                                <p class="hidden">MAX</p>
+                                                <ul>
+                                                    <li><strong>10,000 Impacts</strong> PER MONTH</li>
+                                                    <li><strong>3 Toll Free/Local Numbers</strong></li>
+                                                    <li><strong>TONS OF GREAT FEATURES</strong></li>
+                                                    <li>Free activation</li>
+                                                    <li><a class="btn btn-primary buttonChoosePlan" href="#sabpe">Choose plan >></a></li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-3 col-sm-6">
+                                            <div class="plan most-popular" val="64" id="bluePlan">
+                                                <div class="plan-ribbon-wrapper"><div class="plan-ribbon">Popular</div></div>
+                                                <h3 name="h3Blue">GROW<span>$64</span></h3>
+                                                <p class="hidden">GROW</p>
+                                                <ul>
+                                                    <li><strong>2,000 Impacts</strong> PER MONTH</li>
+                                                    <li><strong>2 Toll Free/Local Numbers</strong></li>
+                                                    <li><strong>TONS OF GREAT FEATURES</strong></li>
+                                                    <li><h6 style="text-decoration: line-through">$25 activation</h6><span>Free activation</span></li>
+                                                    <li><a class="btn btn-primary buttonChoosePlan" href="#sabpe">Choose plan >></a></li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-3 col-sm-6">
+                                            <div class="plan" val="32" id="greenPlan">
+                                                <h3 name="h3Green">RAMP<span>$32</span></h3>
+                                                <p class="hidden">RAMP</p>
+                                                <ul>
+                                                    <li><strong>500 Impacts</strong> PER MONTH</li>
+                                                    <li><strong>1 Toll Free/Local Number</strong></li>
+                                                    <li><strong>TONS OF GREAT FEATURES</strong></li>
+                                                    <li><h6 style="text-decoration: line-through">$25 activation</h6><span>Free activation</span></li>
+                                                    <li><a class="btn btn-primary buttonChoosePlan" href="#sabpe">Choose plan >></a></li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-3 col-sm-6">
+                                            <div class="plan">
+                                                <h3>CUSTOMIZE<span>???</span></h3>
+                                                <ul>
+                                                    <li><strong>Contact us</strong> to adjust this plan to your needs</li>
+                                                    <li>
+                                                        <a class="btn btn-primary" href="contact-us.html">Contact us</a>
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </section>
+                        </section>
+                    </div>
+                    <hr class="tall">
+                </div>
+
+                <div class="row hidden" id="ContentScream1">
+                    <div class="col-md-12">
+
+                        <div class="featured-boxes">
+                            <div class="row">
+
+                                <div class="col-md-12 col-md-offset-3" style="margin-left: 0%; width: 100%">
+                                    <div class="messages">
+
+                                    </div>
+
+                                    <div class="featured-box featured-box-primary align-left mt-xlg">
+                                        <div class="box-content">
+                                            <form action="/" method="post" role="form" id="register-form" class="formData" data-status="1">
+
+                                                <div class="pricing-table princig-table-flat align-center" id="GroupForm1">
+
+                                                    <div class="row">
+                                                        <div class="col-md-12" id="selecNumbers"  style="padding-left: 80px">
+
+                                                            <div id="plansOption">
+                                                                <div class="col-md-5 featured-boxes featured-boxes-style-3 featured-boxes-flat" style="padding-left: 40px; height: 400px">
+                                                                    <div class="row" style="height: 350px">
+                                                                        <div class="col-md-10 col-sm-12" style="height: 325px">
+                                                                            <div class="featured-box featured-box-primary featured-box-effect-3" element.style.height 0>
+                                                                                <div id="redNumberDiv" class="box-content" style="height: 250px" data-click="1">
+                                                                                    <i class="icon-featured fa fa-money"></i>
+                                                                                    <h4>Tool free</h4>
+                                                                                    <div class="col-md-12">
+                                                                                        <label>Virtual number</label>
+                                                                                        <select id="virtualNumber0" name="virtualNumber" class="form-control input-lg mb-md">
+                                                                                            <option value="0">-Select-</option>
+                                                                                        </select>
+                                                                                    </div>
+                                                                                    <h4 style="padding-bottom: 10px">$30 one time fee</h4>
+                                                                                    <h4 class="hidden" id="redSelectNumber" style="font-family: cursive; color: #008fc5; padding-bottom: 5%; margin-bottom: 0px; padding-top: 5%">Your number</h4>
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="col-md-1" style="height: 290px">
+                                                                    <div class="row" style="padding-top: 200px">
+                                                                        <h2 style="font-family: cursive; color: #008fc5">
+                                                                            <b>or</b>
+                                                                        </h2>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="col-md-5 featured-boxes featured-boxes-style-3 featured-boxes-flat" style="padding-left: 40px; height: 350px">
+                                                                    <div class="row" style="height: 300px">
+                                                                        <div class="col-md-10 col-sm-12" style="height: 275px">
+                                                                            <div class="featured-box featured-box-primary featured-box-effect-3">
+                                                                                <div id="greenNumberDiv" class="getted box-content">
+                                                                                    <i class="icon-featured fa fa-star"></i>
+                                                                                    <h4>Local</h4>
+                                                                                    <div class="col-md-4">
+                                                                                        <label>Area code</label>
+                                                                                        <input type="number" maxlength="3" id="areaCode" name="areaCode" value="" placeholder="3 digits" class="form-control input-lg">
+                                                                                    </div>
+                                                                                    <div class="col-md-8">
+                                                                                        <label>Virtual number</label>
+                                                                                        <select id="virtualNumber" name="virtualNumber" class="form-control input-lg mb-md">
+                                                                                            <option value="0">-Select-</option>
+                                                                                        </select>
+                                                                                    </div>
+                                                                                    <h4 style="padding-bottom: 10px">Not additional charge</h4>
+                                                                                    <h4 class="" id="greenSelectNumber" style="font-family: cursive; color: #008fc5; padding-bottom: 5%; margin-bottom: 0px; padding-top: 5%">Your number</h4>
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            
+                                                            <div class="col-md-12" style="padding-top: 10px; margin-bottom: 5%">
+                                                                <div id="blueNumberDiv" class="">
+                                                                    <div class="row center">
+                                                                        <div class="col-lg-8 checkbox-custom checkbox-primay"><label class="checkbox" style="font-size: 40px"><input type="checkbox" class="input-lg" style="width: 40px; height: 40px; margin-top: -8px;" id="chkKeepPlan" for="chkKeepPlan"> <span style="font-size: 40px; margin-left: 25px"> Keep your existing number</span></label></div>
+                                                                    </div>
+                                                                    
+                                                                    <div id="optionKeepExist" class="row hidden" style="padding-left: 90px; padding-top: 50px">
+                                                                        
+                                                                        <div class="col-md-4" style="padding-right: 15px">
+                                                                            <label>Carrier</label>
+                                                                            <select class="form-control input-lg mb-md">
+                                                                                <option value="0">Not Listed</option>
+                                                                                <option value="1">Global Crossing</option>
+                                                                                <option value="2">AT&T</option>
+                                                                                <option value="3">Verizon</option>
+                                                                                <option value="4">Broadvoxv</option>
+                                                                                <option value="5">J2 Glogal</option>
+                                                                                <option value="6">Comcast</option>
+                                                                                <option value="7">Brandwidth</option>
+                                                                                <option value="8">Level 3</option>
+                                                                                <option value="9">Qwest</option>
+                                                                                <option value="10">Cbeyond</option>
+                                                                                <option value="11">PAETECv</option>
+                                                                                <option value="12">Virtual PBX</option>
+                                                                                <option value="13">Toolfreenumbers.com</option>
+                                                                                <option value="14">Ring Central</option>
+                                                                                <option value="15">AccessLine</option>
+                                                                                <option value="16">Sprint</option>
+                                                                                <option value="17">Verizon Business</option>
+                                                                                <option value="18">Phone.com</option>
+                                                                                <option value="19">Windstream.com</option>
+                                                                                <option value="20">Bellsouth</option>
+                                                                                <option value="21">Grasshopper.com</option>
+                                                                            </select>
+                                                                        </div>
+
+                                                                        <div class="col-md-5" style="padding-left: 15px">
+                                                                            <label>Number to Port</label>
+                                                                            <div class="input-group mb-md">
+                                                                                <input class="form-control input-lg" type="text" id="txtKeepPlan"><span class="input-group-btn"><button data-toggle="modal" data-target="#modalPort" style="height: 46px; vertical-align: top; margin-top: 0px;" class="btn btn-success" type="button">Port number <i class="fa fa-edit"></i></button></span>
+                                                                            </div>
+                                                                        </div>
+
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+
+
+                                                        </div>
+                                                    </div>
+
+                                                </div>
+
+
+                                                <div id="GroupForm2" class="hidden">
+
+                                                    <div id="noteForKeepEXistingNumber" class="col-md-12 hidden" style="margin-bottom: 10px; margin-top: 10px; background-color: #d9edf7; color: #31708f; border: 1px solid #d9eda7; padding: 20px; border-left-width: 10px; border-left-color: #31708f; border-radius: 8px">
+                                                        <strong>Note:</strong> We'll assign a temporary toll free number for you to use until your number transfer is complete. Instructions will be emailed after checkout.
+                                                    </div>
+
+                                                    <section class="top" style="padding-bottom: 30px">
+                                                        <section class="col-md-6">
+                                                            <h2><b>1.   Account information</b></h2>
+                                                            <div class="row">
+                                                                <div class="form-group">
+                                                                    <div class="col-md-6">
+                                                                        <label>First Name</label>
+                                                                        <input type="text" name="firstname" value="" class="form-control input-lg" required>
+                                                                    </div>
+                                                                    <div class="col-md-6">
+                                                                        <label>Last Name</label>
+                                                                        <input type="text" name="lastname" value="" class="form-control input-lg" required>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="row">
+                                                                <div class="form-group">
+                                                                    <div class="col-md-12">
+                                                                        <label>E-mail Address</label>
+                                                                        <input type="email" name="email" value="" class="form-control input-lg" required>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="row">
+                                                                <div class="form-group">
+                                                                    <div class="col-md-6">
+                                                                        <label>Password</label>
+                                                                        <input type="password" name="password" value="" class="form-control input-lg" required>
+                                                                    </div>
+                                                                    <div class="col-md-6">
+                                                                        <label>Re-enter Password</label>
+                                                                        <input type="password" name="repassword" value="" class="form-control input-lg" required>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="row">
+                                                                <div class="form-group">
+                                                                    <div class="col-md-12">
+                                                                        <label>Company</label>
+                                                                        <input type="text" name="companyName" value="" placeholder="* Not required" class="form-control input-lg">
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </section>
+                                                        <section class="col-md-6">
+                                                            <h2><b>2. Billing information</b></h2>
+                                                            <div class="row">
+                                                                <div class="form-group">
+                                                                    <div class="col-md-12">
+                                                                        <label>Billing Address</label>
+                                                                        <input type="text" name="billing" value="" class="form-control input-lg">
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="row">
+                                                                <div class="form-group">
+                                                                    <div class="col-md-12">
+                                                                        <label>City</label>
+                                                                        <input type="text" name="city" value="" class="form-control input-lg">
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="row">
+                                                                <div class="form-group">
+                                                                    <div class="col-md-6">
+                                                                        <label>State</label>
+                                                                        <select class="input-lg mb-md col-md-12">
+                                                                            <option value="0">Alabama</option>
+                                                                            <option value="1">Alaska</option>
+                                                                            <option value="2">Arizona</option>
+                                                                            <option value="3">Arkansas</option>
+                                                                            <option value="4">California</option>
+                                                                            <option value="5">Colorado</option>
+                                                                            <option value="6">Connecticut</option>
+                                                                            <option value="7">Delaware</option>
+                                                                            <option value="8">District of Columbia</option>
+                                                                            <option value="9">Florida</option>
+                                                                            <option value="10">Georgia</option>
+                                                                            <option value="11">Hawaii</option>
+                                                                            <option value="12">Idaho</option>
+                                                                            <option value="13">Illinois</option>
+                                                                            <option value="14">Indiana</option>
+                                                                            <option value="15">Iowa</option>
+                                                                            <option value="16">Kansas</option>
+                                                                            <option value="17">Kentucky</option>
+                                                                            <option value="18">Louisiana</option>
+                                                                            <option value="19">Maine</option>
+                                                                            <option value="20">Maryland</option>
+                                                                            <option value="21">Massachusetts</option>
+                                                                            <option value="23">Michigan</option>
+                                                                            <option value="24">Minnesota</option>
+                                                                            <option value="25">Mississippi</option>
+                                                                            <option value="26">Missouri</option>
+                                                                            <option value="27">Montana</option>
+                                                                            <option value="28">Nebraska</option>
+                                                                            <option value="29">Nevada</option>
+                                                                            <option value="30">New Hampshire</option>
+                                                                            <option value="31">New Jersey</option>
+                                                                            <option value="32">New Mexico</option>
+                                                                            <option value="33">New York</option>
+                                                                            <option value="34">North Carolina</option>
+                                                                            <option value="35">North Dakota</option>
+                                                                            <option value="36">Ohio</option>
+                                                                            <option value="37">Oklahoma</option>
+                                                                            <option value="38">Oregon</option>
+                                                                            <option value="39">Pennsylvania</option>
+                                                                            <option value="40">Rhode Island</option>
+                                                                            <option value="41">South Carolina</option>
+                                                                            <option value="42">South Dakota</option>
+                                                                            <option value="43">Tennessee</option>
+                                                                            <option value="44">Texas</option>
+                                                                            <option value="45">Utah</option>
+                                                                            <option value="46">Vermont</option>
+                                                                            <option value="47">Virginia</option>
+                                                                            <option value="48">Washington</option>
+                                                                            <option value="49">West Virginia</option>
+                                                                            <option value="50">Wisconsin</option>
+                                                                            <option value="51">Wyoming</option>
+                                                                        </select>
+                                                                    </div>
+                                                                    <div class="col-md-6">
+                                                                        <label>Postal Code</label>
+                                                                        <input type="password" name="postalCode" value="" class="form-control input-lg">
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="row">
+                                                                <div class="form-group">
+                                                                    <div class="col-md-12">
+                                                                        <label>Name on Credit Card</label>
+                                                                        <input type="text" name="creditCard" value="" class="form-control input-lg">
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="row">
+                                                                <div class="form-group">
+                                                                    <div class="col-md-8">
+                                                                        <label>Expiration date</label>
+                                                                    </div>
+                                                                    <div class="col-md-4">
+                                                                        <label>Security Code</label>
+                                                                    </div>
+                                                                    <div class="col-md-4">
+                                                                        <select class="input-lg mb-md col-md-12">
+                                                                            <option value="0">Month</option>
+                                                                            <option value="1">January</option>
+                                                                            <option value="2">February</option>
+                                                                            <option value="3">March</option>
+                                                                            <option value="4">April</option>
+                                                                            <option value="5">May</option>
+                                                                            <option value="6">June</option>
+                                                                            <option value="7">July</option>
+                                                                            <option value="8">August</option>
+                                                                            <option value="9">September</option>
+                                                                            <option value="10">October</option>
+                                                                            <option value="11">November</option>
+                                                                            <option value="12">December</option>
+                                                                        </select>
+                                                                    </div>
+                                                                    <div class="col-md-4">
+                                                                        <select class="input-lg mb-md col-md-12">
+                                                                            <option value="0">Year</option>
+                                                                            <option value="1">2016</option>
+                                                                            <option value="2">2017</option>
+                                                                            <option value="3">2018</option>
+                                                                            <option value="4">2019</option>
+                                                                            <option value="5">2020</option>
+                                                                            <option value="6">2021</option>
+                                                                            <option value="7">2022</option>
+                                                                            <option value="8">2023</option>
+                                                                            <option value="9">2024</option>
+                                                                            <option value="10">2025</option>
+                                                                            <option value="11">2026</option>
+                                                                            <option value="12">2027</option>
+                                                                        </select>
+                                                                    </div>
+                                                                    <div class="col-md-4"><input type="text" name="securityode" value="" class="form-control input-lg"></div>
+                                                                </div>
+                                                            </div>
+                                                        </section>
+                                                        
+                                                    </section>
+                                                        
+                                                    <section class="bottom">
+                                                        <!--<section class="col-md-6">
+                                                            <h2><b>3. Order summary</b></h2>
+                                                            <div class="row">
+                                                                <div class="form-group">
+                                                                    <div class="col-md-12">
+                                                                        <table class="table table-striped" id="tableSummary" style="text-align: center">
+                                                                            <thead>
+                                                                                <tr>
+                                                                                    <th>        </th>
+                                                                                    <th style="text-align: center">Activation Fee</th>
+                                                                                    <th style="text-align: center">Monthly fee</th>
+                                                                                </tr>
+                                                                            </thead>
+                                                                            <tbody></tbody>
+                                                                        </table>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </section>-->
+                                                        <section id="missingSection" class="col-md-12 hidden">
+                                                            <h2><b>3. Port number process</b></h2>
+                                                            <div class="row">
+                                                                <div class="col-md-8">
+                                                                    <div class="progress">
+                                                                        <div id="missingProgress" class="progress-bar progress-bar-primary progress-bar-striped active" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" style="width: 0%">
+                                                                            <span class="sr-only">0% Complete</span>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="col-md-3">
+                                                                    <a href="#" id="openMissingFields" data-toggle="modal" data-target="#modalPort">Unfilled fields: <span id="missingBadge" class="badge">12</span></a>
+                                                                </div>
+                                                            </div>
+                                                            <!--<h2>
+                                                                <b>4. Confirm registration</b>
+                                                            </h2>
+                                                            <div class="row">
+                                                                <div class="form-group">
+                                                                    <div class="col-md-12 align-center">
+                                                                        <label>Enter your validation code</label>
+                                                                        <input type="text" style="text-align:center;" name="verificationCode" value="" class="form-control input-lg" required>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="row">
+                                                                <div class="form-group">
+                                                                    <div class="col-md-12 align-center">
+                                                                        <button type="submit" value="Register" class="mb-xs mt-xs mr-xs btn btn-primary" id="registerForm" data-loading-text="<span class='glyphicon glyphicon-refresh glyphicon-refresh-animate'></span> Loading...">
+                                                                            Register
+                                                                        </button>
+                                                                    </div>
+                                                                </div>
+                                                            </div>-->
+                                                        </section>
+                                                    </section>
+
+                                                </div>
+
+                                                <div class="row">
+                                                    <div class="col-md-12" style="padding-top: 20px">
+                                                        <input type="hidden" name="method" value="CreateAccount" />
+                                                        <input type="hidden" name="timezoneOffset" id="hdn-timezoneOffset" />
+                                                        
+                                                        <button type="button" value="Back" class="mb-xs mt-xs mr-xs btn btn-primary pull-right" id="nextForm">
+                                                            <i class="fa fa-hand-o-right"></i> Next
+                                                        </button>
+                                                        <button type="button" value="Back" class="mb-xs mt-xs mr-xs btn btn-primary pull-left" id="backForm">
+                                                            <i class="fa fa-hand-o-left"></i> Back
+                                                        </button>
+
+                                                        <button type="submit" value="Register" class="mb-xs mt-xs mr-xs btn btn-primary pull-right hidden" id="registerForm" data-loading-text="<span class='glyphicon glyphicon-refresh glyphicon-refresh-animate'></span> Loading...">
+                                                            Register
+                                                        </button>
+                                                    </div>
+                                                </div>
+                                            </form>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="modal fade" id="modalPort" tabindex="-1" role="dialog" aria-labelledby="largeModalLabel" aria-hidden="true">
+                <div class="modal-dialog modal-lg">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                            <h1 class="modal-title" style="text-align:center" id="portTitle">Port a number (keep existing number)</h1>
+                        </div>
+                        <div class="modal-body" id="portBody">
+
+
+                            <div class="container">
+                                <div class="row" style="padding-left: 30px">
+                                    <div class="col-md-12">
+                                        <h2><b>1. Getting Started</b></h2>
+                                        <div id="divChecks" class="row" style="margin-top: 20px; margin-bottom: 20px; color: black">
+                                            <hr class="tall col-md-8" style="margin: 0px">
+                                            <div class="col-md-8">
+                                                <h4>You are about to port your phone number(s) into ImpactMade which means that we will work with your current provider to move your number(s) to your ImpactMade account. The process typically takes 2-4 weeks, and we will provide updates via email. Once complete, you will be able to use the full set of ImpactMade features on your current number(s).</h4>
+                                                <h4>We are currently able to port in numbers from the continental United States only.</h4>
+                                                <h4>I understand and agree to the following:</h4>
+                                            </div>
+                                            <div class="col-md-8" style="padding-left: 35px">
+                                                <label class="checkbox">
+                                                    <input type="checkbox" id="cb1"> I will pay standard rates for my phone number and usage after my number ports. Details can be found on ImpactMade’s pricing page.
+                                                </label>
+                                            </div>
+                                            <div class="col-md-8" style="padding-left: 35px">
+                                                <label class="checkbox">
+                                                    <input type="checkbox" id="cb2"> I must keep all numbers in service with my current carrier until the port completes to avoid delays or rejections.
+                                                </label>
+                                            </div>
+                                            <div class="col-md-8" style="padding-left: 35px">
+                                                <label class="checkbox">
+                                                    <input type="checkbox" id="cb3"> I must configure my number in ImpactMade’s account portal before my number ports.
+                                                </label>
+                                            </div>
+                                            <div class="col-md-8" style="padding-left: 35px">
+                                                <label class="checkbox">
+                                                    <input type="checkbox" id="cb4"> I am responsible for any termination charges imposed by my current carrier for porting my numbers.
+                                                </label>
+                                            </div>
+                                            <div class="col-md-8" style="padding-left: 35px">
+                                                <label class="checkbox">
+                                                    <input type="checkbox" id="cb5"> I may be unable to receive messages for up to 3 business days after the port completes
+                                                </label>
+                                            </div>
+                                        </div>
+
+
+                                        <hr class="tall col-md-8" style="margin: 0px; margin-bottom: 25px">
+
+                                        <div id="containerInformation" class="container hidden col-md-8">
+                                            <h2><b>2. Basic Information</b></h2>
+                                            <div class="col-md-12">
+                                                <div class="row">
+                                                    <div class="form-group">
+                                                        <div class="col-md-3">
+                                                            <label>Residential or Business</label>
+                                                            <select id="listChoice" class="input-lg mb-md col-md-12">
+                                                                <option class="selected" value="0">Residential</option>
+                                                                <option value="1">Business</option>
+                                                            </select>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="row">
+                                                    <div class="form-group">
+                                                        <div class="col-md-6">
+                                                            <label>First Name</label>
+                                                            <input type="text" id="firstName" value="" class="form-control input-lg">
+                                                        </div>
+                                                        <div class="col-md-6">
+                                                            <label>Last Name</label>
+                                                            <input type="text" id="lastName" value="" class="form-control input-lg">
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="row">
+                                                    <div class="form-group">
+                                                        <div class="col-md-12">
+                                                            <label>Address</label>
+                                                            <input type="text" id="addressName" value="" class="form-control input-lg">
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="row">
+                                                    <div class="form-group">
+                                                        <div class="col-md-4">
+                                                            <label>City</label>
+                                                            <input type="text" id="cityName" value="" class="form-control input-lg" required>
+                                                        </div>
+                                                        <div class="col-md-4">
+                                                            <label>State</label>
+                                                            <select id="listState" class="input-lg mb-md col-md-12">
+                                                                <option value="0">Alabama</option>
+                                                                <option value="1">Alaska</option>
+                                                                <option value="2">Arizona</option>
+                                                                <option value="3">Arkansas</option>
+                                                                <option value="4">California</option>
+                                                                <option value="5">Colorado</option>
+                                                                <option value="6">Connecticut</option>
+                                                                <option value="7">Delaware</option>
+                                                                <option value="8">District of Columbia</option>
+                                                                <option value="9">Florida</option>
+                                                                <option value="10">Georgia</option>
+                                                                <option value="11">Hawaii</option>
+                                                                <option value="12">Idaho</option>
+                                                                <option value="13">Illinois</option>
+                                                                <option value="14">Indiana</option>
+                                                                <option value="15">Iowa</option>
+                                                                <option value="16">Kansas</option>
+                                                                <option value="17">Kentucky</option>
+                                                                <option value="18">Louisiana</option>
+                                                                <option value="19">Maine</option>
+                                                                <option value="20">Maryland</option>
+                                                                <option value="21">Massachusetts</option>
+                                                                <option value="23">Michigan</option>
+                                                                <option value="24">Minnesota</option>
+                                                                <option value="25">Mississippi</option>
+                                                                <option value="26">Missouri</option>
+                                                                <option value="27">Montana</option>
+                                                                <option value="28">Nebraska</option>
+                                                                <option value="29">Nevada</option>
+                                                                <option value="30">New Hampshire</option>
+                                                                <option value="31">New Jersey</option>
+                                                                <option value="32">New Mexico</option>
+                                                                <option value="33">New York</option>
+                                                                <option value="34">North Carolina</option>
+                                                                <option value="35">North Dakota</option>
+                                                                <option value="36">Ohio</option>
+                                                                <option value="37">Oklahoma</option>
+                                                                <option value="38">Oregon</option>
+                                                                <option value="39">Pennsylvania</option>
+                                                                <option value="40">Rhode Island</option>
+                                                                <option value="41">South Carolina</option>
+                                                                <option value="42">South Dakota</option>
+                                                                <option value="43">Tennessee</option>
+                                                                <option value="44">Texas</option>
+                                                                <option value="45">Utah</option>
+                                                                <option value="46">Vermont</option>
+                                                                <option value="47">Virginia</option>
+                                                                <option value="48">Washington</option>
+                                                                <option value="49">West Virginia</option>
+                                                                <option value="50">Wisconsin</option>
+                                                                <option value="51">Wyoming</option>
+                                                            </select>
+                                                        </div>
+                                                        <div class="col-md-4">
+                                                            <label>Post Code</label>
+                                                            <input type="text" id="postCode" value="" class="form-control input-lg" required>
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+                                                <div class="row">
+                                                    <div class="form-group" style="margin-left: 20px;">
+                                                        <div class="col-md-12">
+                                                            <h4>Types of Numbers to Port:</h4>
+                                                        </div>
+                                                        <div class="col-md-12">
+                                                           
+                                                            <div class="col-md-3">
+                                                                <label class="checkbox">
+                                                                    <input id="chkLandline" type="checkbox"> Landline or VoIP
+                                                                </label>
+                                                            </div>
+                                                            <div class="col-md-3">
+                                                                <label class="checkbox">
+                                                                    <input id="chkToolfree" type="checkbox"> Tool free
+                                                                </label>
+                                                            </div>
+                                                            <div class="col-md-3">
+                                                                <label class="checkbox">
+                                                                    <input id="chkWireless" type="checkbox"> Wireless
+                                                                </label>
+                                                            </div>
+                                                          
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <div id="numbersLandline" class="row hidden">
+                                                <h2 style="margin-left: 40px; margin-bottom: 5px">Landline or VoIP</h2>
+                                                <hr class="tall col-md-8" style="margin: 0px; margin-bottom: 25px">
+                                                <div class="form-group" style="margin-left: 20px;">
+                                                    <div class="col-md-12 hidden" style="padding-left: 25px">
+                                                        <h4>Please enter numbers, one per line or comma separated</h4>
+                                                    </div>
+                                                    <div class="col-md-12" style="padding-left: 25px">
+                                                        <textarea id="txtLandlineArea" rows="3" class="col-md-12"></textarea>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div id="numbersToolfree" class="row hidden">
+                                                <h2 style="margin-left: 40px; margin-bottom: 5px"> Tool Free Numbers</h2>
+                                                <hr class="tall col-md-8" style="margin: 0px; margin-bottom: 25px">
+                                                <div class="form-group" style="margin-left: 20px;">
+                                                    <div class="col-md-12 hidden" style="padding-left: 25px">
+                                                        <h4>Please enter numbers, one per line or comma separated</h4>
+                                                    </div>
+                                                    <div class="col-md-12" style="padding-left: 25px">
+                                                        <textarea id="txtToolfreeArea" rows="3" class="col-md-12"></textarea>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div id="numbersWireless" class="row hidden">
+                                                <h2 style="margin-left: 40px; margin-bottom: 5px"> Wireless Numbers</h2>
+                                                <hr class="tall col-md-8" style="margin: 0px; margin-bottom: 25px">
+                                                <div class="form-group" style="margin-left: 20px;">
+                                                    <div class="form-group" style="padding-left: 25px">
+                                                        <div class="col-md-4">
+                                                            <label>Phone Number</label>
+                                                            <input type="text" id="txtPhoneNumber" class="form-control input-lg" required>
+                                                        </div>
+                                                        <div class="col-md-4">
+                                                            <label>Wireless Account Number</label>
+                                                            <input type="text" id="txtWirelessNumber" class="form-control input-lg" required>
+                                                        </div>
+                                                        <div class="col-md-4">
+                                                            <label>PIN or Last 4 of SSN</label>
+                                                            <input type="text" id="txtPin" class="form-control input-lg" required>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-12" style="padding-left: 25px">
+                                                        <div class="col-md-8">Please provide complete information for each Wireless Number you wish to port</div>
+                                                        <div class="col-md-4" style="padding-left: 25px">Add Another Wireless Number</div>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <h2><b>3. Documents</b></h2>
+                                            <hr class="tall col-md-8" style="margin: 0px">
+                                            <div class="row" style="margin-top: 20px; margin-bottom: 20px; color: black">
+                                                <div class="col-md-12" style="padding-bottom: 5px">
+                                                    Please download the Letter of Authorization form,complete it including all numbers entered above and upload. If you are white-labeling ImpactMade, you may download this White-Label Letter of Authorization form and add your own logo.
+                                                </div>
+                                                <div class="col-md-12" style="padding-bottom: 30px">
+                                                    Your Letter of Authorization and Billing Statement(s) must be PDF files and cannot exceed 4MB.
+                                                </div>
+                                                <div class="col-md-12">
+                                                    <div class="col-md-6">
+                                                        <div class="col-md-12" style="padding-bottom: 10px">Letter of Authorization (What's This?)</div>
+                                                        <div class="col-md-12"><input type="file" id="fileAuthorization"></div>
+                                                    </div>
+                                                    <div class="col-md-6">
+                                                        <div class="col-md-12" style="padding-bottom: 10px">Billing Statement(s) (What's This?)</div>
+                                                        <div class="col-md-12" style="padding-bottom: 10px"><input type="file" id="fileBilling"></div>
+                                                        <div class="col-md-12">Add Another Billing Document</div>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                        </div>
+                                    </div>    
+                                </div>
+                            </div>
+
+                        </div>
+                        <div class="modal-footer">
+                            <button id="btnSubmit" class="btn btn-danger" style="padding: 10px; border-radius: 5px">Save Porting Request</button>
+                            <button type="button" class="btn btn-default" style="padding: 10px; border-radius: 5px" data-dismiss="modal">Close</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+
+        <footer id="footer">
+            <div class="container">
+                <div class="row">
+                    <div class="footer-ribbon">
+                        <span>Get in Touch</span>
+                    </div>
+                    <div class="col-md-8">
+                        <h4>About <strong>IM Cloud Communications</strong></h4>
+                        <p style="width: 95%; text-align: justify;">Impact Made, LLC. delivers high-performance business phone systems and cloud services that are simple, intuitive and uniquely integrated, backed by its superior technical support and available in multiple deployment models. We believe that business doesn’t get done without communication. "Technology is everywhere, yet most users don’t leverage the full power of these solutions to drive business. Features and functions meant for productivity are simply too complicated and therefore go unused. Our focus is on making intelligent technology that is intuitive and easy to use, empowering employee productivity to fuel customer satisfaction."</p>
+                        <hr class="tall" style="width: 95%;">
+                    </div>
+                    <div class="col-md-4">
+                        <div class="contact-details">
+                            <h4>Contact Us</h4>
+                            <ul class="contact">
+                                <li>
+                                    <p>
+                                        <i class="fa fa-map-marker"></i> <strong>Address:</strong> 304 Indian Trace #224 Weston, FL 33326, United States
+                                    </p>
+                                </li>
+                                <li>
+                                    <p>
+                                        <i class="fa fa-phone"></i> <strong>Phone:</strong> +1 954-870-4665, Tool Free: +1 855-804-0420
+                                    </p>
+                                </li>
+                                <li>
+                                    <p>
+                                        <i class="fa fa-envelope"></i> <strong>Email:</strong> <a href="mailto:mail@example.com"> info@impactmade.com</a>
+                                    </p>
+                                </li>
+                            </ul>
+
+                            <h4>Follow Us</h4>
+                            <ul class="social-icons">
+                                <li class="social-icons-facebook"><a href="https://www.facebook.com/" target="_blank" title="Facebook"><i class="fa fa-facebook"></i></a></li>
+                                <li class="social-icons-twitter"><a href="https://www.twitter.com/" target="_blank" title="Twitter"><i class="fa fa-twitter"></i></a></li>
+                                <li class="social-icons-linkedin"><a href="https://www.linkedin.com/" target="_blank" title="Linkedin"><i class="fa fa-linkedin"></i></a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-copyright">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-2">
+                            <a href="index.html" class="logo">
+                                <img alt="Porto Website Template" class="img-responsive" src="img/logo-footer.png">
+                            </a>
+                        </div>
+                        <div class="col-md-4">
+                            <p>© Copyright 2015. All Rights Reserved.</p>
+                        </div>
+                        <div class="col-md-6">
+                            <nav id="sub-menu">
+                                <ul>
+                                    <li><a href="about-us.html">About Us</a></li>
+                                    <li><a href="terms.html">Terms & Conditions </a></li>
+                                    <li><a href="privacy.html">Privacy Policy</a></li>
+                                    <li><a href="comming-soon.html">FAQ'S</a></li>
+                                    <li><a href="contact-us.html">Contact Us</a></li>
+                                </ul>
+                            </nav>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </footer>
+
+    </div>
+
+
+    <!-- Vendor -->
+    <script src="vendor/jquery/jquery.min.js"></script>
+    <script src="vendor/jquery.appear/jquery.appear.min.js"></script>
+    <script src="vendor/jquery.easing/jquery.easing.min.js"></script>
+    <script src="vendor/jquery-cookie/jquery-cookie.min.js"></script>
+    <script src="vendor/bootstrap/js/bootstrap.min.js"></script>
+    <script src="vendor/common/common.min.js"></script>
+    <script src="vendor/jquery.validation/jquery.validation.min.js"></script>
+    <script src="vendor/jquery.stellar/jquery.stellar.min.js"></script>
+    <script src="vendor/jquery.easy-pie-chart/jquery.easy-pie-chart.min.js"></script>
+    <script src="vendor/jquery.gmap/jquery.gmap.min.js"></script>
+    <script src="vendor/jquery.lazyload/jquery.lazyload.min.js"></script>
+    <script src="vendor/isotope/jquery.isotope.min.js"></script>
+    <script src="vendor/owl.carousel/owl.carousel.min.js"></script>
+    <script src="vendor/magnific-popup/jquery.magnific-popup.min.js"></script>
+    <script src="vendor/vide/vide.min.js"></script>
+    <script type="text/javascript" src="js/ajaxCore.js"></script>
+
+    <!-- Theme Base, Components and Settings -->
+    <script src="js/theme.js"></script>
+
+    <!-- Theme Custom -->
+    <script src="js/custom.js"></script>
+
+    <!-- Theme Initialization Files -->
+    <script src="js/theme.init.js"></script>
+
+    <!-- Google Analytics: Change UA-XXXXX-X to be your site's ID. Go to https://www.google.com/analytics/ for more information.
+    <script>
+            (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+            (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+            m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+            })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+            ga('create', 'UA-12345678-1', 'auto');
+            ga('send', 'pageview');
+    </script>
+    -->
+    <!--link rel="stylesheet" href="css/toastr.min.css"/>
+    <link rel="stylesheet" href="css/bootstrap-treeview.min.css"/>
+    <link rel="stylesheet" href="css/bootstrap-tour.min.css"/>
+
+    <script type="text/javascript" src="js/toastr.min.js"></script>
+    <script type="text/javascript" src="js/toaster_msgs.js"></script>
+
+    <script type="text/javascript" src="js/tree-class.js"></script>
+
+    <script type="text/javascript" src="js/bootstrap-treeview.min.js"></script>
+
+    <script type="text/javascript" src="js/bootstrap-tour.min.js"></script-->
+
+
+    <script type="text/javascript">
+        $(function () {
+
+            function fillTableSummary() {
+                var idPopular = $(".most-popular").attr("id");
+                var pricePlan = $("#" + idPopular + " h3 span").text();
+                var namePlan = $("#" + idPopular + " p").text();
+                var idPlanNumber = $(".getted").attr("id");
+                var nameNumberSelect = $("#" + idPlanNumber + " h4").text();
+                var priceNumberSelect = $("#" + idPlanNumber + " p").text();
+                var numberSelected = "";
+                var lineTable = "";
+                if (nameNumberSelect == "Local") {
+                    numberSelected = $("#virtualNumber").val();
+                    lineTable = "<tr>" + "<td>     " + "<strong>Plan</strong><h6>" + namePlan + "</h6>" + "</td>" + "<td>$0</td>" + "<td>" + pricePlan + "</td>" + "</tr>" +
+                                "<tr>" + "<td>     " + "<strong>" + nameNumberSelect + "</strong><h6>" + numberSelected + "</h6>" + "</td>" + "<td>" + priceNumberSelect + "</td><td>$0</td>" + "</tr>";
+                }
+                if (nameNumberSelect == "Tool free") {
+                    numberSelected = $("#virtualNumber0").val();
+                    lineTable = "<tr>" + "<td>     " + "<strong>Plan</strong><h6>" + namePlan + "</h6>" + "</td>" + "<td>$0</td>" + "<td>" + pricePlan + "</td>" + "</tr>" +
+                                "<tr>" + "<td>     " + "<strong>" + nameNumberSelect + "</strong><h6>" + numberSelected + "</h6>" + "</td>" + "<td>" + priceNumberSelect + "</td><td>$0</td>" + "</tr>";
+                }
+                return lineTable;
+            }
+
+            function fillVirtualNumbers(idList, areaCode, country, toolFree) {
+                $(idList).html("");
+                $(idList).append("<option value='0'>Loading..</option>");
+                Services.Primary.CheckAvailableNumbers(areaCode, country, toolFree,
+                    function (result) {
+                        var numberList = result;
+                        $(idList).html("");
+                        $(idList).append("<option value='0'>-Select-</option>");
+                        $.each(result, function (i, v) {
+                            $(idList).append("<option value='" + v.Number + "'>" + v.Number + "</option>");
+                        });
+                        freeVirtulNumbers = true;
+                    },
+                    function (error) {
+                        $(idList).html("");
+                        $(idList).append("<option value='0'>-Select-</option>");
+                        freeVirtulNumbers = true;
+                    });
+            }
+
+            $("#keepExistingNumberButton").click(function (event) {
+                var cont = $("#keepExistingNumberButton").attr("data-cont");
+                if (cont == "1") {
+                    $("#keepExistingNumberBody").removeClass("hidden");
+                    $("#selecNumbers").addClass("hidden");
+                    $("#keepExistingNumberButton").attr("data-cont", 0);
+                }
+                if (cont == "0") {
+                    $("#keepExistingNumberBody").addClass("hidden");
+                    $("#keepExistingNumberButton").attr("data-cont", 1);
+                    $("#selecNumbers").removeClass("hidden");
+                    $("#selecNumbers").show();
+                }
+            });
+
+            $("#redPlan").click(function (event) {
+                $("#redPlan").addClass("most-popular most-popular-red");
+                $("#bluePlan").removeClass("most-popular");
+                $("#greenPlan").removeClass("most-popular");
+            });
+
+            $("#bluePlan").click(function (event) {
+                $("#bluePlan").addClass("most-popular most-popular-blue");
+                $("#redPlan").removeClass("most-popular");
+                $("#greenPlan").removeClass("most-popular");
+            });
+
+            $("#greenPlan").click(function (event) {
+                $("#greenPlan").addClass("most-popular most-popular-green");
+                $("#redPlan").removeClass("most-popular");
+                $("#bluePlan").removeClass("most-popular");
+            });
+
+            $("#redNumberDiv").click(function (event) {
+                $("#redNumberDiv").addClass("getted");
+                $("#blueNumberDiv").removeClass("getted");
+                $("#greenNumberDiv").removeClass("getted");
+                $("#h3ToolFreePlan").removeClass("planNumberUnselected");
+                $("#h3ToolFreePlan").addClass("planNumberSelected");
+                $("#h3KeepPlan").removeClass("planNumberSelected");
+                $("#h3KeepPlan").addClass("planNumberUnselected");
+                $("#h3LocalPlan").removeClass("planNumberSelected");
+                $("#h3LocalPlan").addClass("planNumberUnselected");
+                $("#redInfo").addClass("hidden");
+                $("#blueInfo").removeClass("hidden");
+                $("#greenInfo").removeClass("hidden");
+                $("#redSelectNumber").removeClass("hidden");
+                $("#blueSelectNumber").addClass("hidden");
+                $("#greenSelectNumber").addClass("hidden");
+
+                if ($("#redNumberDiv").attr("data-click") == 1) {
+                    fillVirtualNumbers("#virtualNumber0", "", "+1", true);
+                }
+                $("#redNumberDiv").attr("data-click", 2);
+            });
+
+            $("#blueNumberDiv").click(function (event) {
+                $("#redNumberDiv").removeClass("getted");
+                $("#blueNumberDiv").addClass("getted");
+                $("#greenNumberDiv").removeClass("getted");
+                $("#h3ToolFreePlan").removeClass("planNumberSelected");
+                $("#h3ToolFreePlan").addClass("planNumberUnselected");
+                $("#h3KeepPlan").removeClass("planNumberUnselected");
+                $("#h3KeepPlan").addClass("planNumberSelected");
+                $("#h3LocalPlan").removeClass("planNumberSelected");
+                $("#h3LocalPlan").addClass("planNumberUnselected");
+                $("#redInfo").removeClass("hidden");
+                $("#blueInfo").addClass("hidden");
+                $("#greenInfo").removeClass("hidden");
+                $("#redSelectNumber").addClass("hidden");
+                $("#blueSelectNumber").removeClass("hidden");
+                $("#greenSelectNumber").addClass("hidden");
+            });
+
+            $("#greenNumberDiv").click(function (event) {
+                $("#greenNumberDiv").addClass("getted");
+                $("#blueNumberDiv").removeClass("getted");
+                $("#redNumberDiv").removeClass("getted");
+                $("#h3ToolFreePlan").removeClass("planNumberSelected");
+                $("#h3ToolFreePlan").addClass("planNumberUnselected");
+                $("#h3KeepPlan").removeClass("planNumberSelected");
+                $("#h3KeepPlan").addClass("planNumberUnselected");
+                $("#h3LocalPlan").removeClass("planNumberUnselected");
+                $("#h3LocalPlan").addClass("planNumberSelected");
+                $("#greenInfo").addClass("hidden");
+                $("#blueInfo").removeClass("hidden");
+                $("#redInfo").removeClass("hidden");
+                $("#greenSelectNumber").removeClass("hidden");
+                $("#blueSelectNumber").addClass("hidden");
+                $("#redSelectNumber").addClass("hidden");
+
+            });
+
+            $(".buttonChoosePlan").click(function (event) {
+                $("#scream1 h1").removeClass("selected");
+                $("#scream2 h1").addClass("selected");
+                $("#scream3 h1").removeClass("selected");
+                $("#ContentScream1").removeClass("hidden");
+                $("#ContentScream0").addClass("hidden");
+                $("#GroupForm1").removeClass("hidden");
+                $("#GroupForm2").addClass("hidden");
+                $("#scream2").focus();
+            });
+
+            $("#scream1").click(function (event) {
+                $("#scream1 h1").addClass("selected");
+                $("#scream2 h1").removeClass("selected");
+                $("#scream3 h1").removeClass("selected");
+                $("#ContentScream0").removeClass("hidden");
+                $("#ContentScream1").addClass("hidden");
+                $("#registerForm").addClass("hidden");
+            });
+
+            $("#scream2").click(function (event) {
+                $("#scream1 h1").removeClass("selected");
+                $("#scream2 h1").addClass("selected");
+                $("#scream3 h1").removeClass("selected");
+                $("#ContentScream1").removeClass("hidden");
+                $("#ContentScream0").addClass("hidden");
+                $("#GroupForm1").removeClass("hidden");
+                $("#GroupForm1").show();
+                $("#nextForm").removeClass("hidden");
+                $("#nextForm").show();
+                $("#GroupForm2").addClass("hidden");
+                $(".formData").attr("data-status", 1);
+                $("#registerForm").addClass("hidden");
+            });
+
+            $("#scream3").click(function (event) {
+                var virtualNumberCombo = $("#virtualNumber").val();
+                var virtualNumberCombo0 = $("#virtualNumber0").val();
+                if (virtualNumberCombo != 0 || virtualNumberCombo0 != 0) {
+                    $("#scream1 h1").removeClass("selected");
+                    $("#scream2 h1").removeClass("selected");
+                    $("#scream3 h1").addClass("selected");
+                    $("#ContentScream1").removeClass("hidden");
+                    $("#ContentScream0").addClass("hidden");
+                    $("#GroupForm1").addClass("hidden");
+                    $("#GroupForm2").removeClass("hidden");
+                    $("#GroupForm2").show();
+                    $("#backForm").removeClass("hidden");
+                    $(".formData").attr("data-status", 2);
+                    $("#backForm").show();
+                    $("#nextForm").addClass("hidden");
+                    $("#register-form input[name='firstname']").focus();
+                    $("#tableSummary tbody tr").remove();
+                    $("#tableSummary").append(fillTableSummary());
+                    $("#registerForm").removeClass("hidden");
+                } else {
+                    alert("Select a virtual number");
+                }
+            });
+
+            var freeVirtulNumbers = true;
+
+            $("#nextForm").click(function (event) {
+                var formStatus = $(".formData").attr("data-status");
+                if (formStatus == 1) {
+                    var virtualNumberCombo = $("#virtualNumber").val();
+                    var virtualNumberCombo0 = $("#virtualNumber0").val();
+                    if (virtualNumberCombo == 0 && virtualNumberCombo0 == 0) alert("Select a virtual number");
+                    else {
+                        $("#scream1 h1").removeClass("selected");
+                        $("#scream2 h1").removeClass("selected");
+                        $("#scream3 h1").addClass("selected");
+                        $("#scream3 h1").focus();
+                        $("#GroupForm1").slideUp(function () {
+                            $("#GroupForm2").removeClass("hidden").hide().slideDown('slow', function () {
+                                $("#headInfoForm").html("Enter your personal data");
+                                $("#backForm").removeClass("hidden");
+                                $(".formData").attr("data-status", 2);
+                                $("#backForm").show();
+                                $("#register-form input[name='firstname']").focus();
+                                $("#nextForm").addClass("hidden");
+                                $("#registerForm").removeClass("hidden");
+                                $("#registerForm").show();
+                                $("#tableSummary tbody tr").remove();
+                                $("#tableSummary").append(fillTableSummary());
+                            });
+                        });
+
+                    }
+                }
+                if (formStatus == 2) {
+                    $("#GroupForm2").slideUp(function () {
+                        $("#GroupForm3").removeClass("hidden").hide().slideDown('slow', function () {
+                            $("#headInfoForm").html("Enter your validation code");
+                            alert("aqui ando");
+                            $("#backForm").addClass("hidden");
+                            $("#nextForm").addClass("hidden");
+                            $("#registerForm").removeClass("hidden");
+                            $("#registerForm").show();
+                            $(".formData").attr("data-status", 3);
+                            $("#register-form input[name='verificationCode']").focus();
+                        });
+                    });
+
+                    var emailField = $("#register-form input[name='email']").val();
+                    var phoneField = $("#register-form select[id='virtualNumber']").val();
+                    var code = "";
+
+                    var object = { "email": emailField, "userPhoneNumber": phoneField, "verifyByVoice": false };
+
+                    verifingAccountbyphone(object,
+                    function (result) {
+                        if (result.Success) {
+                            code = result.Tag;
+                            alert("el codigo es:" + code);
+                        }
+                        else {
+                            alert(result.ErrorMessage);
+                        }
+                    }, function (error) {
+                        alert("Error. Please. Try again");
+                        $("#backForm").trigger("click");
+                    });
+
+                }
+            });
+
+
+            $("#backForm").click(function (event) {
+                var virtualNumberCombo = $("#virtualNumber").val();
+                var virtualNumberCombo0 = $("#virtualNumber0").val();
+                var formStatus = $(".formData").attr("data-status");
+                if (formStatus == 1) {
+                    if (virtualNumberCombo == 0 && virtualNumberCombo0 == 0) alert("Select a virtual number");
+                    else {
+                        $("#ContentScream0").removeClass("hidden");
+                        $("#ContentScream1").addClass("hidden");
+                        $("#scream1").addClass("selected");
+                        $("#scream1 h1").addClass("selected");
+                        $("#scream2 h1").removeClass("selected");
+                        $("#scream3 h1").removeClass("selected");
+                        $("#registerForm").addClass("hidden");
+                        $("#tableSummary tbody tr").remove();
+                        }
+                    }
+                if (formStatus == 2) {
+                    $("#GroupForm2").slideUp(function () {
+                        $("#headInfoForm").html("Choose your new number");
+                        $(".formData").attr("data-status", 1);
+                        $(event.currentTarget).hide();
+                        $("#GroupForm1").slideDown();
+                        $("#backForm").removeClass("hidden");
+                        $("#nextForm").removeClass("hidden");
+                        $("#nextForm").show();
+                        $("#backForm").show();
+                        $("#registerForm").addClass("hidden");
+                        $("#scream1 h1").removeClass("selected");
+                        $("#scream2 h1").addClass("selected");
+                        $("#scream3 h1").removeClass("selected");
+                        $("#scream2").removeClass("hidden");
+                        $("#scream2").show();
+                        $("#tableSummary tbody tr").remove();
+                    });
+                }
+            });
+
+            $("#areaCode").keyup(function (event) {
+                if ($(event.currentTarget).val().length === 3) {
+                    fillVirtualNumbers("#virtualNumber", $(event.currentTarget).val(), "+1", false);
+                }
+                else {
+                    if (freeVirtulNumbers)
+                        fillVirtualNumbers("#virtualNumber", "",  "+1",false);
+                }
+            });
+
+            fillVirtualNumbers("#virtualNumber", "", "+1", false);
+
+            function alertErrorTemplate(data) {
+                var tpl = '';
+                tpl += '<div class="alert alert-danger alert-dismissible" role="alert">';
+                tpl += '    <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>';
+                tpl += '    <strong><i class="fa fa-warning"></i>Something is wrong!</strong> There are some errors.';
+
+                if (data.Required && (data.Required.length > 0)) {
+                    tpl += '    <ul>';
+                    for (var i = 0; i < data.Required.length; i++) {
+                        tpl += '        <li>Field ' + data.Required[i] + ' is required</li>';
+                    }
+                    tpl += '    </ul>';
+                }
+
+                if (data.ErrorMessage) {
+                    tpl += '    <ul>';
+                    tpl += '        <li>' + data.ErrorMessage + '</li>';
+                    tpl += '    </ul>';
+                }
+
+
+                tpl += '</div>';
+                return tpl;
+            }
+
+            function alertSuccessTemplate(data) {
+                var tpl = '';
+                tpl += '<div class="alert alert-success alert-dismissible" role="alert">';
+                tpl += '    <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>';
+                tpl += '    <strong><i class="fa fa-info"></i>Thanks!</strong> Your request has been send.';
+                tpl += '</div>';
+                return tpl;
+            }
+
+
+            var $register_form = $("#register-form");
+            $register_form.submit(function (evt) {
+
+                try {
+
+                    evt.preventDefault();
+                    var pass1 = $register_form.find("input[name=password]").val();
+                    var pass2 = $register_form.find("input[name=repassword]").val();
+                    var virtualNumber = $register_form.find("select[name=virtualNumber] option:selected").val();
+                    var $btn = $register_form.find("button:submit");
+
+                    if (pass1 != pass2) {
+                        var tpl = alertErrorTemplate({ ErrorMessage: "Passwords doesn't match!", Requiredd: [] });
+                        $(".messages").html(tpl);
+                        $('html, body').animate({
+                            scrollTop: $(".messages").offset().top - 80
+                        }, 500);
+
+                        return;
+                    }
+
+                    //console.log($register_form.serialize());
+                    var dataSerialize = $register_form.serializeArray();
+                    var s = '';
+                    var data = {};
+                    for (s in dataSerialize) {
+                        data[dataSerialize[s]['name']] = dataSerialize[s]['value'];
+                    }
+                    console.log(data);
+                    var objectString = JSON.stringify(data);
+                    var object = JSON.parse(objectString);
+
+                    //dataSerialize = object;
+                    console.log(object);
+                    signingup(object,
+                        function (result) {
+                            $btn.button("reset");
+                            var tpl = '';
+                            if (result.Success) {
+                                tpl = alertSuccessTemplate(result);
+                                $(".messages").html(tpl);
+                                $('html, body').animate(
+                                    { scrollTop: $(".messages").offset().top - 80 }, 500,
+                                    function () {
+                                        loginAccess(object,
+                                            function (result) {
+                                                $btn.button("reset");
+                                                var tpl = '';
+                                                if (result !== "") {
+                                                    localStorage["x-token"] = result.Tag;
+                                                    localStorage["email"] = $("input[name='email']").val();
+                                                    console.log(result);
+                                                    location.href = "manage.html";
+                                                } else {
+                                                    localStorage.removeItem("x-token");
+                                                    var tpl = alertErrorTemplate();
+                                                    $(".messages").html(tpl);
+                                                    $('html, body').animate({
+                                                        scrollTop: $(".messages").offset().top - 80
+                                                    }, 500);
+                                                }
+                                            },
+                                            function (error) {
+                                                console.log(error);
+                                                localStorage.removeItem("x-token");
+                                            }
+                                        );
+                                    }
+                               );
+
+                            } else {
+                                var tpl = alertErrorTemplate(result);
+                                $(".messages").html(tpl);
+                                $('html, body').animate({
+                                    scrollTop: $(".messages").offset().top - 80
+                                }, 500);
+                            }
+                        },
+                        function (error) {
+                            $btn.button("reset");
+                        });
+                }
+
+                catch (err) {
+                    var tpl = alertErrorTemplate(err);
+                    $(".messages").html(tpl);
+                    $('html, body').animate({
+                        scrollTop: $(".messages").offset().top - 80
+                    }, 500);
+                }
+            });
+
+            $("#chkKeepPlan").click(function () {
+                //$("#missingProgress").css("width", "70%").attr("aria-valuenow", "70");
+                if ($("#chkKeepPlan").is(":checked")) {
+                    //$("#plansOption").addClass("hidden");
+                    $("#optionKeepExist").removeClass("hidden");
+                    //TODO Terminar esta parte
+                    $("#optionKeepExist").removeClass("hidden");
+                    $("#noteForKeepEXistingNumber").removeClass("hidden");
+                    $("#missingSection").removeClass("hidden");
+                }
+                else {
+                    //$("#plansOption").removeClass("hidden");
+                    $("#optionKeepExist").addClass("hidden");
+                    $("#noteForKeepEXistingNumber").addClass("hidden");
+                    $("#missingSection").addClass("hidden");
+                }
+            });
+
+            //codigo del port number
+
+            $("#userTab").html("");
+            $("#userTab").html(localStorage["email"]);
+
+            function displayingFormTwo() {
+                if ($("#cb1").is(':checked') && $("#cb2").is(':checked') && $("#cb3").is(':checked') && $("#cb4").is(':checked') && $("#cb5").is(':checked')) {
+                    $("#containerInformation").removeClass("hidden");
+                    $("#divChecks").addClass("hidden");
+                } else {
+                    $("#containerInformation").addClass("hidden");
+                }
+            }
+
+            $("#cb1").click(function (event) {
+                displayingFormTwo();
+            });
+            $("#cb2").click(function (event) {
+                displayingFormTwo();
+            });
+            $("#cb3").click(function (event) {
+                displayingFormTwo();
+            });
+            $("#cb4").click(function (event) {
+                displayingFormTwo();
+            });
+            $("#cb5").click(function (event) {
+                displayingFormTwo();
+            });
+
+            $("#chkGoogle").click(function (event) {
+                if ($("#chkGoogle").is(':checked')) {
+                    $("#numbersGoogle").removeClass("hidden");
+                } else { $("#numbersGoogle").addClass("hidden") }
+            });
+
+            $("#chkLandline").click(function (event) {
+                if ($("#chkLandline").is(':checked')) {
+                    $("#numbersLandline").removeClass("hidden");
+                } else { $("#numbersLandline").addClass("hidden") }
+            });
+
+            $("#chkToolfree").click(function (event) {
+                if ($("#chkToolfree").is(':checked')) {
+                    $("#numbersToolfree").removeClass("hidden");
+                } else { $("#numbersToolfree").addClass("hidden"); }
+            });
+
+            $("#chkWireless").click(function (event) {
+                if ($("#chkWireless").is(':checked')) {
+                    $("#numbersWireless").removeClass("hidden");
+                } else { $("#numbersWireless").addClass("hidden"); }
+            });
+
+            function fillTypeNumbers() {
+                var typeNumbers = "";
+                if ($("#chkGoogle").is(':checked')) {
+                    typeNumbers += $("#txtGoogleArea").val();
+                }
+                if ($("#chkLandline").is(':checked')) {
+                    $("#numbersLandline").removeClass("hidden");
+                    typeNumbers += $("#txtLandlineArea").val();
+                }
+                if ($("#chkToolfree").is(':checked')) {
+                    typeNumbers += $("#txtToolfreeArea").val();
+                }
+                if ($("#chkWireless").is(':checked')) {
+                    typeNumbers += $("#txtPhoneNumber").val() + "," + $("#txtWirelessNumber").val() + "," + $("#txtPin").val();
+                }
+                return typeNumbers;
+            }
+
+            var doc1;
+
+            $("#fileAuthorization").change(function (evt) {
+                var archivos = evt.currentTarget.files;
+                // Obtenemos la imagen del campo "file".
+                for (var i = 0, f; f = archivos[i]; i++) {
+                    //Solo admitimos imágenes.
+                    //if (!f.type.match('image.*')) {
+                    //    continue;
+                    //}
+
+                    var reader = new FileReader();
+
+                    reader.onload = (function (theFile) {
+                        return function (e) {
+                            // Insertamos la imagen
+                            doc1 = e.currentTarget.result;
+                        };
+                    })(f);
+
+                    reader.readAsDataURL(f);
+                }
+            });
+
+            var doc2;
+
+            $("#fileBilling").change(function (evt) {
+                var archivos = evt.currentTarget.files;
+                // Obtenemos la imagen del campo "file".
+                for (var i = 0, f; f = archivos[i]; i++) {
+                    //Solo admitimos imágenes.
+                    //if (!f.type.match('image.*')) {
+                    //    continue;
+                    //}
+
+                    var reader = new FileReader();
+
+                    reader.onload = (function (theFile) {
+                        return function (e) {
+                            // Insertamos la imagen
+                            doc2 = e.currentTarget.result;
+                        };
+                    })(f);
+
+                    reader.readAsDataURL(f);
+                }
+            });
+
+            //$("#btnSubmit").click(function (event) {
+            //    var dataSerialize = $("#portName").val();
+            //    dataSerialize += "," + listChoice.options[listChoice.selectedIndex].text;
+            //    dataSerialize += "," + $("#firstName").val();
+            //    dataSerialize += "," + $("#lastName").val();
+            //    dataSerialize += "," + $("#addressName").val();
+            //    dataSerialize += "," + $("#cityName").val();
+            //    dataSerialize += "," + listState.options[listState.selectedIndex].text;
+            //    dataSerialize += "," + $("#postCode").val();
+            //    var numbersOption = fillTypeNumbers();
+            //    var number;
+
+            //    Services.Local.PortNumber("", dataSerialize, numbersOption, doc1, doc2, "", function (result) {
+            //        alert("All dates save successfully");
+            //    },
+            //    function (error) { alert("error saving the dates"); });
+            //});
+
+            var keyCompleteInformation = false;
+            var keyCompletePort = false;
+
+            function isCompleteInformation() {
+
+            }
+
+            function isCompletePort() {
+
+            }
+
+            $("#registerForm").click(function (event) {
+
+            });
+
+            $("#modalPort").click(function (event) {
+                var obligatorios = 7; var depLandline = 1; var depToolfree = 1; var depWireless = 3; var percentProgress = 0; var total = 12;
+                var aux2 = 0;
+                if($("#firstName").val() != ""){
+                    obligatorios -= 1;
+                }
+                if ($("#lastName").val() != "") {
+                    obligatorios -= 1;
+                }
+                if ($("#addressName").val() != "") {
+                    obligatorios -= 1;
+                }
+                if ($("#cityName").val() != "") {
+                    obligatorios -= 1;
+                }
+                if ($("#postCode").val() != "") {
+                    obligatorios -= 1;
+                }
+                if ($("#fileAuthorization").val() != "") {
+                    obligatorios -= 1;
+                }
+                if ($("#fileBilling").val() != "") {
+                    obligatorios -= 1;
+                }
+                if ($("#chkLandline").is(':checked')) {
+                    aux2 += depLandline;
+                    if ($("#txtLandlineArea").val() != "") {
+                        depLandline -= 1;
+                    }
+                }
+                if ($("#chkToolfree").is(':checked')) {
+                    aux2 += depToolfree;
+                    if ($("#txtToolfreeArea").val() != "") {
+                        depToolfree -= 1;
+                    }
+                }
+                if ($("#chkWireless").is(':checked')) {
+                    aux2 += depWireless;
+                    if ($("#txtPhoneNumber").val() != "") {
+                        depWireless -= 1;
+                    }
+                    if ($("#txtWirelessNumber").val() != "") {
+                        depWireless -= 1;
+                    }
+                    if ($("#txtPin").val() != "") {
+                        depWireless -= 1;
+                    }
+                }
+                var aux = depLandline + depToolfree + depWireless;
+                var num = (total - (obligatorios + aux));
+                var den = (7 + aux2);
+                percentProgress = (num / den).toFixed(2);
+                percentProgress = percentProgress * 100;
+                $("#missingProgress").css("width", percentProgress + "%").attr("aria-valuenow", percentProgress);
+                $("#missingBadge").html(den - num);
+            });
+
+            $("#openMissingFields").click(function () {
+
+            });
+
+        });
+    </script>
+
+</body>
+
+</html>

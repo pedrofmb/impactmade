@@ -1,0 +1,229 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+
+        <!-- Basic -->
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+        <title>Dictionary | Impact Made Communications</title>
+
+        <meta name="keywords" content="HTML5 Template" />
+        <meta name="description" content="Porto - Responsive HTML5 Template">
+        <meta name="author" content="okler.net">
+
+        <!-- Favicon -->
+        <link rel="shortcut icon" href="img/logo-icon-trans2.png" type="image/x-icon" />
+        <link rel="apple-touch-icon" href="img/apple-touch-icon.png">
+
+        <!-- Mobile Metas -->
+        <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+        <!-- Web Fonts  -->
+        <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700,800%7CShadows+Into+Light" rel="stylesheet" type="text/css">
+
+        <!-- Vendor CSS -->
+        <link rel="stylesheet" href="vendor/bootstrap/css/bootstrap.min.css">
+        <link rel="stylesheet" href="vendor/font-awesome/css/font-awesome.min.css">
+        <link rel="stylesheet" href="vendor/simple-line-icons/css/simple-line-icons.min.css">
+        <link rel="stylesheet" href="vendor/owl.carousel/assets/owl.carousel.min.css">
+        <link rel="stylesheet" href="vendor/owl.carousel/assets/owl.theme.default.min.css">
+        <link rel="stylesheet" href="vendor/magnific-popup/magnific-popup.min.css">
+
+        <!-- Theme CSS -->
+        <link rel="stylesheet" href="css/theme.css">
+        <link rel="stylesheet" href="css/theme-elements.css">
+        <link rel="stylesheet" href="css/theme-blog.css">
+        <link rel="stylesheet" href="css/theme-shop.css">
+        <link rel="stylesheet" href="css/theme-animate.css">
+
+        <!-- Skin CSS -->
+        <link rel="stylesheet" href="css/skins/default.css">
+
+        <!-- Theme Custom CSS -->
+        <link rel="stylesheet" href="css/custom.css">
+
+        <!-- Head Libs -->
+        <script src="vendor/modernizr/modernizr.min.js"></script>
+        <script src="vendor/jquery/jquery.min.js"></script>
+        <script src="vendor/jquery.appear/jquery.appear.min.js"></script>
+        <script src="vendor/jquery.easing/jquery.easing.min.js"></script>
+        <script src="vendor/jquery-cookie/jquery-cookie.min.js"></script>
+        <script src="vendor/bootstrap/js/bootstrap.min.js"></script>
+        <script src="vendor/common/common.min.js"></script>
+        <script src="vendor/jquery.validation/jquery.validation.min.js"></script>
+        <script src="vendor/jquery.stellar/jquery.stellar.min.js"></script>
+        <script src="vendor/jquery.easy-pie-chart/jquery.easy-pie-chart.min.js"></script>
+        <script src="vendor/jquery.gmap/jquery.gmap.min.js"></script>
+        <script src="vendor/jquery.lazyload/jquery.lazyload.min.js"></script>
+        <script src="vendor/isotope/jquery.isotope.min.js"></script>
+        <script src="vendor/owl.carousel/owl.carousel.min.js"></script>
+        <script src="vendor/magnific-popup/jquery.magnific-popup.min.js"></script>
+        <script src="vendor/vide/vide.min.js"></script>
+    <title></title>
+    <script src="vendor/jquery/jquery.min.js"></script>
+    <meta charset="utf-8"/>
+    <script type="text/javascript">
+
+        $(function () {
+
+            function Galeria(photoIni, length) {
+                this.indice = photoIni;
+                this.length = length;
+                this.timer = "";
+            }
+
+            Galeria.prototype.setPhotoIndex = function(indice) {
+                this.indice = indice;
+            }
+
+            Galeria.prototype.getPhotoIndex = function() {
+                return this.indice;
+            }
+
+            Galeria.prototype.setLength = function (length) {
+                this.length = length;
+            }
+
+            Galeria.prototype.getLength = function () {
+                return this.length;
+            }
+
+            Galeria.prototype.reproducir = function (funcion) {
+                this.t = setInterval(funcion, 1000);
+            }
+
+            Galeria.prototype.pausar = function() {
+                clearInterval(this.t);
+            }
+            ///////
+            //var t;
+
+            //function reproducir() {
+            //    t = setInterval(temporizador, 1000);
+            //}
+
+            //var index = 0;
+
+            //function temporizador() {
+            //    $("#timer").append(index + "--");
+            //    index+=4;
+            //}
+
+            //$("#reloj").click(function(event) {
+            //    reproducir();
+            //});
+
+            //function pausa() {
+            //    clearInterval(t);
+            //}
+
+            //$("#pause").click(function (event) {
+            //    pausa();
+            //});
+        });
+    </script>
+</head>
+<body>
+<div class="row">
+    <div class="col-md-6">
+        <button id="reloj" class="btn btn-success">
+            Empezar
+        </button>
+    </div>
+    <div class="col-md-6">
+        <label id="timer"></label>
+    </div>
+    <div class="col-md-6">
+        <button id="reproduction" class="btn btn-success fa fa-pause" data-boolean="0">
+        </button>
+    </div>
+    <br/><br/>
+    <div class="col-md-6"><button class="btn btn-success" id="registrar">registrar</button></div>
+    <div class="col-md-6"><button class="btn btn-success" id="mostrar">mostrar</button></div>
+    <div class="col-md-6"><input type="text" id="texto"/></div>
+    <div class="col-md-6"><label id="resultado">Res</label>
+    </div>
+    <label class="col-md-6"><label id="trampa"></label></label>
+    <div class="col-md-6" style="margin-left: 40px;">
+        <div class="input-group">
+            <input type="text" class="form-control" placeholder="Username" aria-describedby="basic-addon1">
+            <span class="input-group-addon" id="basic-addon1">U</span>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>
+
+<script>
+    $(function () {
+
+        function Galeria() {
+            this.indice = "";
+            this.length = "";
+            this.timer = "";
+        }
+
+        Galeria.prototype.setPhotoIndex = function (indice) {
+            this.indice = indice;
+        }
+
+        Galeria.prototype.getPhotoIndex = function () {
+            return this.indice;
+        }
+
+        Galeria.prototype.setLength = function (length) {
+            this.length = length;
+        }
+
+        Galeria.prototype.getLength = function () {
+            return this.length;
+        }
+
+        Galeria.prototype.reproducir = function (i) {
+            function correr() {
+                $("#timer").append(i + "--");
+                $("#trampa").html(i);
+                i++;
+            }
+            this.t = setInterval(correr, 1000);
+        }
+
+        Galeria.prototype.pausar = function () {
+            clearInterval(this.t);
+        }
+
+        var t = new Galeria();
+        var index = 10;
+        t.setPhotoIndex(index);
+        t.setLength(34+index);
+        t.reproducir(t.getPhotoIndex());
+
+        $("#reproduction").click(function (event) {
+            var index = $("#reproduction").attr("data-boolean");
+            if (index == "0") {
+                t.pausar();
+                $("#reproduction").removeClass("fa fa-pause");
+                $("#reproduction").addClass("fa fa-play");
+                $("#reproduction").attr("data-boolean", "1");
+            }
+            if (index == "1") {
+                t.reproducir($("#trampa").html());
+                $("#reproduction").removeClass("fa fa-play");
+                $("#reproduction").addClass("fa fa-pause");
+                $("#reproduction").attr("data-boolean", "0");
+            }
+        });
+
+        $("#registrar").click(function (event) {
+            var a = $("#texto").val();
+            t.setPhotoIndex(a);
+        });
+
+        $("#mostrar").click(function (event) {
+            var a = t.getPhotoIndex();
+            $("#resultado").html(a);
+        });
+    });
+</script>

@@ -1,0 +1,774 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+    <script src="vendor/jquery/jquery.min.js"></script>
+    <!-- Vendor CSS -->
+    <link rel="stylesheet" href="vendor/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="vendor/font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="vendor/simple-line-icons/css/simple-line-icons.min.css">
+    <link rel="stylesheet" href="vendor/owl.carousel/assets/owl.carousel.min.css">
+    <link rel="stylesheet" href="vendor/owl.carousel/assets/owl.theme.default.min.css">
+    <link rel="stylesheet" href="vendor/magnific-popup/magnific-popup.min.css">
+
+    <!-- Theme CSS -->
+    <link rel="stylesheet" href="css/theme.css">
+    <link rel="stylesheet" href="css/theme-elements.css">
+    <link rel="stylesheet" href="css/theme-blog.css">
+    <link rel="stylesheet" href="css/theme-shop.css">
+    <link rel="stylesheet" href="css/theme-animate.css">
+
+    <!-- Skin CSS -->
+    <link rel="stylesheet" href="css/skins/default.css">
+
+    <!-- Theme Custom CSS -->
+    <link rel="stylesheet" href="css/custom.css">
+
+    <!-- Head Libs -->
+    <script src="vendor/modernizr/modernizr.min.js"></script>
+    <script src="vendor/jquery/jquery.min.js"></script>
+    <script src="vendor/jquery.appear/jquery.appear.min.js"></script>
+    <script src="vendor/jquery.easing/jquery.easing.min.js"></script>
+    <script src="vendor/jquery-cookie/jquery-cookie.min.js"></script>
+    <script src="vendor/bootstrap/js/bootstrap.min.js"></script>
+    <script src="vendor/common/common.min.js"></script>
+    <script src="vendor/jquery.validation/jquery.validation.min.js"></script>
+    <script src="vendor/jquery.stellar/jquery.stellar.min.js"></script>
+    <script src="vendor/jquery.easy-pie-chart/jquery.easy-pie-chart.min.js"></script>
+    <script src="vendor/jquery.gmap/jquery.gmap.min.js"></script>
+    <script src="vendor/jquery.lazyload/jquery.lazyload.min.js"></script>
+    <script src="vendor/isotope/jquery.isotope.min.js"></script>
+    <script src="vendor/owl.carousel/owl.carousel.min.js"></script>
+    <script src="vendor/magnific-popup/jquery.magnific-popup.min.js"></script>
+    <script src="vendor/vide/vide.min.js"></script>
+
+    <script type="text/javascript" src="js/structures.js"></script>
+
+<meta charset="utf-8" />
+    <script type="text/javascript">
+        // these are labels for the days of the week
+        cal_days_labels = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
+
+        // these are human-readable month name labels, in order
+        cal_months_labels = [
+            'January', 'February', 'March', 'April',
+            'May', 'June', 'July', 'August', 'September',
+            'October', 'November', 'December'
+        ];
+
+        // these are the days of the week for each month, in order
+        cal_days_in_month = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31];
+
+        // this is the current date
+        cal_current_date = new Date();
+
+        function Calendar(month, year) {
+            this.month = (isNaN(month) || month == null) ? cal_current_date.getMonth() : month;
+            this.year = (isNaN(year) || year == null) ? cal_current_date.getFullYear() : year;
+            this.html = '';
+        }
+
+        Calendar.prototype.getFullDate = function(index, day, month, year) {
+            var fullDate = cal_days_labels[index] + ", " + cal_months_labels[month] + " " + day + "th, " + year;
+            return fullDate;
+        }
+
+        Calendar.prototype.getActuallyMonth = function() {
+            return cal_current_date.getMonth();
+        }
+
+        Calendar.prototype.getStartAndEnd = function () {
+            var array;
+            // find number of days in month
+            var monthLength = cal_days_in_month[this.month];
+
+            // compensate for leap year
+            if (this.month == 1) { // February only!
+                if ((this.year % 4 == 0 && this.year % 100 != 0) || this.year % 400 == 0) {
+                    monthLength = 29;
+                }
+            }
+            //var fDate = new Date((parseInt(this.month) + 1) + "-" + "1" + "-" + this.year);
+            //es -5 porque 0 + (-5 --> por el huso horario)
+            var d = new Date();
+            var n = d.getTimezoneOffset();
+            n = n * -1;
+            var fDate = new Date(this.year, this.month, 1, 0, n, 0);
+            fDate = fDate.toISOString();
+            //es 18, 59, 59 porque (23(-5 --> por el uso horario)), 59, 59
+            var eDate = new Date(this.year, this.month, monthLength, 18, 59, 59);
+            eDate = eDate.toISOString();
+            array = [fDate, eDate];
+            return array;
+        }
+
+        Calendar.prototype.getActuallyYear = function() {
+            return cal_current_date.getFullYear();
+        }
+
+        Calendar.prototype.generateHTML = function() {
+
+            // get first day of month
+            var firstDay = new Date(this.year, this.month, 1);
+            var startingDay = firstDay.getDay();
+
+            // find number of days in month
+            var monthLength = cal_days_in_month[this.month];
+
+            // compensate for leap year
+            if (this.month == 1) { // February only!
+                if ((this.year % 4 == 0 && this.year % 100 != 0) || this.year % 400 == 0) {
+                    monthLength = 29;
+                }
+            }
+
+            // do the header
+            var monthName = cal_months_labels[this.month];
+            var html = '<table class="calendar-table" style="margin-left: 20px; text-align: center">';
+            html += '<tr><th class="title">';
+            html += monthName + "&nbsp;" + this.year;
+            html += '</th></tr>';
+            html += '<tr class="calendar-header">';
+            for (var i = 0; i <= 6; i++) {
+                html += '<td class="calendar-header-day">';
+                html += cal_days_labels[i];
+                html += '</td>';
+            }
+            html += '</tr><tr>';
+
+            // fill in the days
+            var day = 1;
+            // this loop is for is weeks (rows)
+            for (var i = 0; i < 9; i++) {
+                // this loop is for weekdays (cells)
+                for (var j = 0; j <= 6; j++) {
+
+                    if (day <= monthLength && (i > 0 || j >= startingDay)) {
+                        html += '<td class="calendar-day">';
+                        html += '<div>' + day + '</div>';
+                        html += '<div class="event" data-toggle="modal" id=' + this.month + '-' + day + '-' + this.year + ' data-target="#modalEvent"></div>' +
+                            '<div class="hidden auxiliar-window" id=' + this.month + '-' + day + '-' + this.year + "-wd" + '><button type="button" class="close">×</button><p>' + cal_days_labels[j] + ', ' + day + ' ' + monthName + '</p></div>';
+                        day++;
+                    } else {
+                        html += '<td class="no-calendar-day">';
+                    }
+                    html += '</td>';
+                }
+                // stop making rows if we've run out of days
+                if (day > monthLength) {
+                    break;
+                } else {
+                    html += '</tr><tr>';
+                }
+            }
+            html += '</tr></table>';
+
+            this.html = html;
+        }
+
+        Calendar.prototype.getHTML = function() {
+            return this.html;
+        }
+
+        Calendar.prototype.fulledCalendar = function(startDate, endDate) {
+            Services.Local.GetEvents(startDate, endDate, "0",
+                function (result) {
+                    for (var i=0; i < result.length; i++) {
+                        var data = result[i].Event.Id;
+                        var vNumber = result[i].Event.IdVirtualNumber;
+                        var logic = result[i].Event.IdLogic;
+                        var title = result[i].Event.Title;
+                        var desc = result[i].Event.Subtitle;
+                        var date = result[i].Event.Date;
+                        var numbers;
+                        for (var j = 0; j < result[i].Recipients.length; j++) {
+                            numbers += result[i].Recipients[j].IdPhoneNumber+",";
+                        }
+                        var any = date.split("T");
+                        var pDate = any[0];
+                        var pHours = any[1];
+                        var span = pDate.split("-");
+                        var spanId = (parseInt(span[1]) - 1) + "" + "-" + parseInt(span[2]) + "" + "-" + span[0];
+                        var event = new Event(data, spanId + "-" + $("#" + spanId + "-wd span").length, vNumber, logic, title, desc, date, numbers);
+                        var a = event.createEventLabel();
+                        $("#" + spanId + "-wd").append(a);
+                        if ($("#" + spanId + " span").length < 3) {
+                            $("#" + spanId).append(a);
+                        } else {
+                            if ($("#" + spanId + " a").length == 0) {
+                                var more = '<a class="moreEvents" id="' + spanId + '-a" href="#">More Events(+)</a>';
+                                $("#" + spanId).append(more);
+                                $(".moreEvents").on("click", function (evento) {
+                                    evento.stopPropagation();
+                                    $("#" + evento.currentTarget.parentNode.id + "-wd").removeClass("hidden");
+                                });
+                            }
+                        }
+                        $(".eventLabel").on("click", function (event) {
+                            event.stopPropagation();
+                            $("#bubbleCalendar").removeClass("hidden");
+                            $("#bubbleCalendar").attr("data-event-called", $("#" + event.target.id).attr("data-event"));
+                            $("#bubbleCalendar").attr("data-event-id", event.target.id);
+                            var top = $("#" + event.target.id).offset().top - 275;
+                            var left = $("#" + event.target.id).offset().left - 85;
+                            $("#bubbleCalendar").css("top", top);
+                            $("#bubbleCalendar").css("left", left);
+                            //llenando el bubbleCalendar..
+                            var arrayValues = event.target.id.split("-");
+                            $("#titleBubble").html($("#" + event.target.id).html());
+                            var bn = (parseInt(arrayValues[0]) + 1) + '-' + arrayValues[1] + '-' + arrayValues[2];
+                            var an = new Date(bn);
+                            var cn = new Calendar();
+                            cn = cn.getFullDate(an.getDay(), arrayValues[1], arrayValues[0], arrayValues[2]);
+                            $("#bodyBubble").html("<p style='color: #0288CC'>" + cn + "</p>");
+                        });
+                        //$("#" + spanId).append(event);
+                    }
+                    //alert(result[0].Event.IdLogic + " eso bota");
+                },
+                function(error) {
+                    
+                });
+        }
+
+    </script>
+    <script type="text/javascript">
+        function Event(dataEvent, idSpan, virtualNumber, idLogic, title, description, date, numbers) {
+            this.data = dataEvent;
+            this.id = idSpan;
+            this.vNumber = virtualNumber;
+            this.logic = idLogic;
+            this.title = title;
+            this.description = description;
+            this.date = date;
+            this.numbers = numbers;
+        }
+
+        Event.prototype.createEventLabel = function () {
+            var a = this.title;
+            if (a.length > 21) {
+                a = a.substr(0, 21);
+            }
+            var span = '<span class="eventLabel" data-event='+ this.data +' id=' + this.id + '>' + a + '</span>';
+            return span;
+        }
+
+        Event.prototype.createBulletPoint = function() {
+            
+        }
+    </script>
+<style>
+    .title {
+        height: 50px;
+        text-align: center;
+        position: relative;
+    }
+    .calendar-day {
+        color: black;
+        text-align: center;
+        width: 150px;
+        background-color: #dedede;
+        position: relative;
+    }
+
+    /*.no-calendar-day{
+            border: solid 2px black;
+            text-align: center;
+            width: 150px;
+        }*/
+
+    .event {
+        height: 100px;
+        width: 150px;
+        background-color: #efefef;
+        margin: 0 auto;
+        position: relative;
+        top: 0;
+        left: 0;
+        z-index: 1;
+    }
+
+    .auxiliar-window {
+
+        background-color: rgba(0, 0, 0, 0);
+        background-repeat: no-repeat;
+        background-image: url("img/slides/slide-bg.jpg");
+        background-size: cover;
+        background-position: center center;
+        opacity: 1;
+        visibility: inherit;
+        width: 190px;
+        padding: 10px 20px 10px 20px;
+        border-radius: 3px;
+        margin: 0 auto;
+        position: absolute;
+        top: 22px;
+        left: 0;
+        z-index: 2;
+    }
+    /*.event:hover{
+            background-color: yellow;
+            color: black;
+            cursor: pointer;
+        }*/
+
+    .eventLabel {
+        float: left;
+        background-color: #0288CC;
+        color: white;
+        border-radius: 5px;
+        width: 150px;
+        text-align: center;
+        margin-bottom: 2px;
+        z-index: 2;
+    }
+
+    .chat-bubble {
+        position: relative;
+        display: block;
+        background-color: white;
+        width: 350px;
+        height: 180px;
+        padding: 0px 10px 0px 10px;
+        border: 2px solid #0288CC;
+        z-index: 3;
+    }
+
+
+    .chat-bubble:after {
+        display: block;
+        position: absolute;
+        left: 40%;
+        bottom: -32px;
+        content: " ";
+        border-color: #0288CC transparent transparent transparent;
+        border-style: solid;
+        border-width: 16px;
+        z-index: 3;
+    }
+    .head {
+        margin-top: 5px;
+        margin-bottom: 5px;
+    }
+</style>
+<script type="text/javascript">
+    function tiempo() {
+        var t = setTimeout("mensaje()", 3000);
+    }
+
+    function mensaje() {
+        alert("¡Hola!");
+    }
+</script>
+</head>
+<body>
+<div class="header-body">
+    <div class="nav-bar-calendar" style="margin-top: 20px;">
+        <div class="row">
+            <div class="col-md-12" style="align-content: center;">
+                <div class="col-md-2">
+                    <button class="btn" style="background-color: #0288CC; color: white;" id="prevMonth">Previous Month</button>
+                </div>
+                <div class="col-md-2">
+                    <button class="btn" style="background-color: #0288CC; color: white;" id="nextMonth">Next Month</button>
+                </div>
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <div class="col-md-3" style="margin-top: 5px;"><label class="control-label pull-right">Date:</label>
+                        </div>
+                        <div class="col-md-4"><input type="date" class="form-control" id="dateHead">
+                        </div>
+                        <div class="col-md-4"><button class="btn form-control" style="background-color: #0288CC; color: white;" id="btnSelectDate">Done</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+    <div class="chat-bubble hidden" id="bubbleCalendar" style="border-radius: 5px;">
+        <div class="row">
+            <div class="col-md-12">
+                <h4 style="margin-top: 5px" id="titleBubble" class="head col-md-10">
+                    Evento 1
+                </h4>
+                <button id="closeBubble" style="margin-right: 5px;" class="close head col-md-1">x</button>
+            </div>
+        </div>
+        <div class="col-md-12" id="bodyBubble" style="height: 80px;">
+
+        </div>
+        <div class="col-md-12">
+            <button id="deleteEvent" class="btn btn-default col-md-4" style="margin: 10px 0px 10px 0px; margin-left: 5px;">Delete</button>
+            <button id="editEvent" class="btn pull-right col-md-4" style="margin: 10px 0px 10px 0px; margin-right: 5px; background-color: #0288CC; color:white;">Edit Event</button>
+        </div>
+    </div>
+<div id="myCalendar">
+
+</div>
+
+<div class="modal fade in" id="modalEvent" tabindex="-1" role="dialog" aria-labelledby="formModalLabel" aria-hidden="true" style="display: none;">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                    <h4 class="modal-title align-center" id="eventTitle">New Event</h4>
+                </div>
+                <div class="modal-body" id="eventBody" style="height: 340px; margin-left: 0px; overflow: scroll;">
+                    <div class="form-group">
+                        <div class="col-md-3"><label class="control-label">Number</label>
+                        </div>
+                        <div class="col-md-9">
+                            <select id="selectEventNumber" class="form-control">
+                                <option value="0">--Select--</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="col-md-3"><label class="control-label">Type</label></div>
+                        <div class="col-md-9">
+                            <select id="selectEventTypeLogic" class="form-control">
+                                <option value="0">--SMS--</option>
+                                <option value="1">--VOICE--</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="col-md-3"><label class="control-label">Id Logic</label>
+                        </div>
+                        <div class="col-md-9">
+                            <select id="selectEventLogic" class="form-control">
+                                <option value="0">--Select--</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="col-md-3"><label class="control-label">Title</label></div>
+                        <div class="col-md-9"><input id="txtEventTitle" class="form-control" type="text" placeholder="Title Name"/></div>
+                    </div>
+                    <div class="form-group">
+                        <div class="col-md-3"><label class="control-label">Description</label></div>
+                        <div class="col-md-9"><textarea id="txtareaEventDescription" class="form-control"></textarea></div>
+                    </div>
+                    <div class="form-group">
+                        <div class="col-md-3"><label class="control-label">Date</label>
+                        </div>
+                        <div class="col-md-5"><input class="form-control" type="date" id="dateEvent"/>
+                        </div>
+                        <div class="col-md-4"><input class="form-control" value="00:00" type="time" id="hourEvent"/></div>
+                    </div>
+                    <div class="form-group">
+                        <div class="col-md-3">
+                            <label class="control-label">Numbers:</label>
+                            <p style="font-size: 10px">*Enter the numbers separated by commas</p>
+                        </div>
+                        <div class="col-md-9">
+                            <textarea id="areaListNumbers" style="height: 100px;" class="form-control"></textarea>
+                        </div>
+                        <div class="col-md-6 hidden" style="height: 75px; overflow: scroll;">
+                            <ul id="listEventNumbers">
+                                <li>+19541234567</li>
+                                <li>+19541234568</li>
+                                <li>+19541234569</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+                    <button type="button" id="btnModalCreate" class="btn btn-danger" data-dismiss="modal">Create Event</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <input type="button" value="Mensaje a los 3 s." onClick="tiempo();" />
+</body>
+</html>
+<script type="text/javascript" src="js/ajaxCore.js"></script>
+<script type="text/javascript">
+    $(function () {
+        //$("#userTab").html("");
+        //$("#userTab").html(localStorage["email"]);
+
+        //var SIDCODE = localStorage["sid"];
+
+        var idDate;
+        var cal1 = new Calendar();
+        var month = cal1.getActuallyMonth();
+        var year = cal1.getActuallyYear();
+        cal1.generateHTML();
+        var z = cal1.getStartAndEnd();
+        cal1.fulledCalendar(z[0], z[1]);
+        $("#myCalendar").html(cal1.getHTML());
+        //Services.Local.GetEvents();
+        $("#prevMonth").click(function (event) {
+            if (month == 0) {
+                year--;
+                month = 11;
+            } else {month--;}
+            var cal = new Calendar(month, year);
+            cal.generateHTML();
+            var z = cal.getStartAndEnd();
+            cal.fulledCalendar(z[0], z[1]);
+            $("#myCalendar").html(cal.getHTML());
+            $(".event").click(function (event) {
+                $("#modalEvent").css("display", "block");
+                idDate = event.target.id;
+                $("#dateEvent").val(pushDate(idDate));
+            });
+            $(".close").click(function (event) {
+                $(".auxiliar-window").addClass("hidden");
+            });
+        });
+
+        $("#nextMonth").click(function (event) {
+            if (month == 11) {
+                year++;
+                month = 0;
+            } else { month++; }
+            var cal = new Calendar(month, year);
+            cal.generateHTML();
+            var z = cal.getStartAndEnd();
+            cal.fulledCalendar(z[0], z[1]);
+            $("#myCalendar").html(cal.getHTML());
+            $(".event").click(function (event) {
+                $("#modalEvent").css("display", "block");
+                idDate = event.target.id;
+                $("#dateEvent").val(pushDate(idDate));
+            });
+            $(".close").click(function (event) {
+                $(".auxiliar-window").addClass("hidden");
+            });
+        });
+
+        $(".event").click(function (event) {
+            $("#modalEvent").css("display", "block");
+            idDate = event.target.id;
+            $("#dateEvent").val(pushDate(idDate));
+        });
+
+        $(".close").click(function (event) {
+            $(".auxiliar-window").addClass("hidden");
+        });
+
+        $("#btnSelectDate").click(function(event) {
+            var date = $("#dateHead").val();
+            var array = date.split("-");
+            var year = array[0];
+            var month = array[1] - 1;
+            var cal = new Calendar(month, year);
+            cal.generateHTML();
+            var z = cal.getStartAndEnd();
+            cal.fulledCalendar(z[0], z[1]);
+            $("#myCalendar").html(cal.getHTML());
+            $(".event").click(function (event) {
+                $("#modalEvent").css("display", "block");
+                idDate = event.target.id;
+                $("#dateEvent").val(pushDate(idDate));
+            });
+        });
+
+        $("#btnModalCreate").click(function (event) {
+            //validar cada numero antes de enviar toda la cadena
+            var stringNumber = $("#listEventNumbers").val();
+            var arrayNumbers = stringNumber.split(",");
+
+            //reestablecer el formulario a valores predeterminados
+
+            //creando el evento dentro de su respectivo div
+            var vnumber = $("#selectEventNumber").val();
+            var type = $("#selectEventTypeLogic").val();
+            var logic = $("#selectEventLogic").val();
+            var title = $("#txtEventTitle").val();
+            var description = $("#txtareaEventDescription").val();
+            var date = new Date($("#dateEvent").val());
+            date = date.toISOString();
+            var listNumbers = $("#areaListNumbers").val();
+            Services.Local.CreateEvent(vnumber, logic, title, description, date, listNumbers,
+                function (result) {
+                    var arrayValues;
+                    //Preparándonos para la parte visual de la creación de eventos
+                    var evt = new Event(result, idDate + "-" + $("#" + idDate + "-wd span").length, vnumber, logic, title, description, date, listNumbers);
+                    var a = evt.createEventLabel();
+                    $("#" + idDate + "-wd").append(a);
+                    if ($("#" + idDate + " span").length < 3) {
+                        $("#" + idDate).append(a);
+                    } else {
+                        if ($("#" + idDate + " a").length == 0) {
+                            var more = '<a class="moreEvents" id="' + idDate + '-a" href="#">More Events(+)</a>';
+                            $("#" + idDate).append(more);
+                            $(".moreEvents").on("click", function (evento) {
+                                evento.stopPropagation();
+                                $("#" + evento.currentTarget.parentNode.id + "-wd").removeClass("hidden");
+                            });
+                        }
+                    }
+                    $(".eventLabel").on("click", function (event) {
+                        event.stopPropagation();
+                        $("#bubbleCalendar").removeClass("hidden");
+                        $("#bubbleCalendar").attr("data-event-called", $("#" + event.target.id).attr("data-event"));
+                        $("#bubbleCalendar").attr("data-event-id", event.target.id);
+                        var top = $("#" + event.target.id).offset().top - 275;
+                        var left = $("#" + event.target.id).offset().left - 85;
+                        $("#bubbleCalendar").css("top", top);
+                        $("#bubbleCalendar").css("left", left);
+                        //llenando el bubbleCalendar..
+                        arrayValues = event.target.id.split("-");
+                        $("#titleBubble").html(title);
+                        var bn = pushDate(event.target.id);
+                        var an = new Date(bn);
+                        var cn = new Calendar();
+                        cn = cn.getFullDate(an.getDay(), arrayValues[1], arrayValues[0], arrayValues[2]);
+                        $("#bodyBubble").html("<p style='color: #0288CC'>"+ cn +"</p><br/><p>"+  +"</p>");
+                    });
+                    //fin de la preparación de eventos
+                    var month = arrayValues[0];
+                    var year = arrayValues[2];
+                    $("#bubbleCalendar").addClass("hidden");
+                    var cal = new Calendar(month, year);
+                    cal.generateHTML();
+                    var z = cal.getStartAndEnd();
+                    cal.fulledCalendar(z[0], z[1]);
+                    $("#myCalendar").html(cal.getHTML());
+                }, function(error) {
+                    alert("Sorry... we can´t create this event");
+                });
+            //reseteando el modal
+            $("#selectEventNumber").val(0);
+            $("#selectEventTypeLogic").val(0);
+            $("#selectEventLogic").val(0);
+            $("#txtEventTitle").val("");
+            $("#txtareaEventDescription").val("");
+            $("#dateEvent").val("");
+            $("#areaListNumbers").val("");
+            $("#listEventNumbers").html("");
+            $("#selectEventNumber").focus();
+        });
+
+        var virtualNumbersArray = [];
+        function loadVirtualNumbers() {
+            var virtualNumber = $("#selectEventNumber");
+            virtualNumbersArray = [];
+
+            virtualNumber.html("");
+            $("#selectEventNumber").append("<option value='0'>-Loading-</option>");
+
+            Services.Local.GetVirtualNumbers(
+                function (result) {
+
+                    if (result.length > 0) {
+                        virtualNumber.html("");
+                        $.each(result, function (i, v) {
+                            virtualNumbersArray.push(new VirtualNumbers(v.Sid, v.Number));
+                            virtualNumber.append("<option value='" + v.Sid + "'>" + v.Number + "</option>");
+                        });
+                    }
+
+                    var options = $("#selectEventNumber option");
+                    options.eq(1).prop("selected", true);
+                    if (options.length > 2) {
+                        options.prop("disabled", false);
+                    }
+
+                    var valor = $("#selectEventTypeLogic").val() * 1;
+                    var virtualNumberValue = $("#selectEventNumber").val();
+                    loadLogicsUI(virtualNumberValue, valor);
+                },
+                function (error) {
+                    msg_warning("Error in get virtual numbers.");
+                }
+            );
+        }
+
+        loadVirtualNumbers();
+        var logicsArray;
+        function loadLogicsUI(sidVirtualNumber, indice) {
+            $("#selectEventLogic").html("--Loading--");
+            logicsArray = [];
+            Services.Local.GetLogics(
+                sidVirtualNumber,
+                function (result) {
+                    $("#selectEventLogic").html("--Loading--");
+
+                    var booleanVoice = true;
+                    if (indice === 0) {
+                        booleanVoice = false;
+                    }
+
+                    var text;
+                    var objLogic = null;
+                    $("#selectEventLogic").html();
+                    $.each(result, function (ix, vx) {
+                        if (objLogic == null) {
+                            if (booleanVoice && vx.IsVoice) {
+                                objLogic = vx;
+                            }
+                            if (!booleanVoice && !vx.IsVoice) {
+                                objLogic = vx;
+                            }
+                        }
+
+                        logicsArray[vx.IdLogic] = new LogicStruct(vx.IdLogic, vx.IsVoice, vx.Name, vx.Description, vx.DateCreated, vx.IsDefault);
+                        if (vx.IsVoice === booleanVoice) {
+                            $("#selectEventLogic").append("<option value='" + vx.IdLogic + "'>" + vx.Name + "</option>");
+                        }
+                    });
+                },
+                function (error) {
+                    alert("Error in get logics.");
+                    $("#selectOptionDropDown").html("--Select--");
+                }
+            );
+        }
+
+        $("#selectEventTypeLogic").change(function () {
+            var valor = $("#selectEventTypeLogic").val() * 1;
+            var sidVirtualNumber = $("#selectEventNumber").val();
+            loadLogicsUI(sidVirtualNumber, valor);
+        });
+
+        $("#closeBubble").click(function (event) {
+            $("#bubbleCalendar").addClass("hidden");
+        });
+
+        $("#deleteEvent").click(function () {
+            var id = $("#bubbleCalendar").attr("data-event-called");
+            var dateId = $("#bubbleCalendar").attr("data-event-id");
+            var array = dateId.split("-");
+            Services.Local.DeleteEvent(id,
+                function (result) {
+                    alert("Delet OK! ");
+                    var month = array[0];
+                    var year = array[2];
+                    $("#bubbleCalendar").addClass("hidden");
+                    var cal = new Calendar(month, year);
+                    cal.generateHTML();
+                    var z = cal.getStartAndEnd();
+                    cal.fulledCalendar(z[0], z[1]);
+                    $("#myCalendar").html(cal.getHTML());
+                }, function (error) {
+                    alert("Error on delete ");
+                });
+        });
+
+        function pushDate(idDate) {
+            //10-9-2016 [0]=mes [1]=dia [2]=año
+            var array = idDate.split("-");
+            var day = array[1];
+            var month = array[0];
+            var year = array[2];
+            month = parseInt(month) + 1;
+            var cadena = "";
+            if (parseInt(day) < 10) {
+                day = "0" + day;
+            }
+            if (parseInt(month) < 10) {
+                month = "0" + month;
+            }
+            cadena = year + "-" + month + "-" + day;
+            return cadena;
+        }
+        
+    });
+</script>

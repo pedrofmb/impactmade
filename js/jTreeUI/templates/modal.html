@@ -1,0 +1,267 @@
+<div class="modal fade modal-nuevo-nodo" tabindex="-1" role="dialog" aria-hidden="true" data-backdrop="static">
+    <div class="modal-dialog">
+        <form class="form-horizontal form-registrar-nodo" role="form" name="form-registrar-nodo" method="post" action="#">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4 class="modal-title">Create Node</h4>
+                </div>
+                <div class="modal-body">
+                    <div class="row">
+                        <div class="col-md-12 row-content">
+                            <div class="form-group">
+                                <label class="col-sm-4 control-label">Type Node:</label>
+                                <div class="col-sm-8">
+                                    <select class="form-control cmb-tag" name="tag" required></select>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <input type="hidden" class="hdn-nodo-padre" name="nodo"/>
+                    <input type="hidden" class="hdn-nodo-option" name="option" value="crearNodo"/>
+                    <button type="button" class="btn btn-default closemodal" data-dismiss="modal">Close</button>
+                    <button title="Crear Nodo" type="submit" class="btn btn-primary btn-registrar-nodo">Create Node</button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+
+<div class="modal fade modal-comentario" tabindex="-1" role="dialog" aria-hidden="true" data-backdrop="static">
+    <div class="modal-dialog">
+        <form class="form-horizontal form-comentar-nodo" role="form" name="form-comentar-nodo" method="post" action="#">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4 class="modal-title">Add Node Comment</h4>
+                </div>
+                <div class="modal-body">
+                    <div class="row">
+                        <div class="col-md-12 row-content">
+                            <div class="form-group">
+                                <label class="col-sm-4 control-label">Comment:</label>
+                                <div class="col-sm-8">
+                                    <textarea class="form-control txt-comment" name="comment"></textarea>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <input type="hidden" class="hdn-nodo-selecteccionado"/>
+                    <input type="hidden" class="hdn-nodo-padre" name="nodo"/>
+                    <input type="hidden" class="hdn-nodo-option" name="option" value="crearNodo"/>
+                    <button type="button" class="btn btn-default closemodal" data-dismiss="modal">Close</button>
+                    <button title="Comment" type="submit" class="btn btn-primary btn-comentar-nodo">Save comment</button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+
+<div class="modal fade modal-guardar" tabindex="-1" role="dialog" aria-hidden="true" data-backdrop="static">
+    <div class="modal-dialog">
+        <form class="form-horizontal form-guardar" role="form" name="form-guardar" method="post" action="#">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4 class="modal-title">Save as</h4>
+                </div>
+                <div class="modal-body">
+                    <div class="row">
+                        <div class="col-md-12 row-content">
+                            <div class="form-group">
+                                <label class="col-sm-4 control-label">Nombre:</label>
+                                <div class="col-sm-8">
+                                    <input type="text" class="form-control txt-nombre" name="nombre"/>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-sm-4 control-label">Descripcion:</label>
+                                <div class="col-sm-8">
+                                    <textarea class="form-control txt-descripcion" name="descripcion"></textarea>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <input type="hidden" class="hdn-nodo-selecteccionado"/>
+                    <input type="hidden" name="option" value="guardarArbol"/>
+                    <button type="button" class="btn btn-default closemodal" data-dismiss="modal">Close</button>
+                    <button title="Comment" type="submit" class="btn btn-primary">Save logic</button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+
+
+<div class="modal fade modal-cargar" tabindex="-1" role="dialog" aria-hidden="true" data-backdrop="static">
+    <div class="modal-dialog">
+        <form class="form-horizontal form-cargar-arbol" role="form" name="form-cargar-arbol" method="post" action="#">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4 class="modal-title">Load Tree Archive</h4>
+                </div>
+                <div class="modal-body">
+                    <div class="row">
+                        <div class="col-md-12 row-content">
+                            <div class="form-group">
+                                <label class="col-sm-4 control-label">Select file:</label>
+                                <div class="col-sm-8">
+                                    <input type="file" class="form-control file-tree" name="filetree"/>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <input type="hidden" class="hdn-nodo-seleccionado" />
+                    <input type="hidden" class="hdn-nodo-padre" name="nodo" />
+                    <button type="button" class="btn btn-default closemodal" data-dismiss="modal">Close</button>
+                    <button title="Load Tree" type="submit" class="btn btn-primary">Load Tree</button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+
+
+<div class="modal fade modal-guardar-cambios" tabindex="-1" role="dialog" aria-hidden="true" data-backdrop="static">
+    <div class="modal-dialog">
+        <form class="form-horizontal form-guardar-cambios" role="form" name="form-guardar-cambios" method="post" action="#">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4 class="modal-title">Save Changes</h4>
+                </div>
+                <div class="modal-body">
+                    <div class="row">
+                        <div class="col-md-12 row-content">
+                            <p>There are some changes in your logic. Choose one action to perform:</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <input type="hidden" class="hdn-nodo-selecteccionado" />
+                    <input type="hidden" name="option" value="guardarArbol" />
+                    <button type="button" class="btn btn-default closemodal" data-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary btn-sobreescribir">Overwrite Logic</button>
+                    <button type="button" class="btn btn-primary btn-guardar-nuevo">Save as new logic</button>
+                    <button type="button" class="btn btn-danger btn-descartar-cambios">Discard changes</button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+
+
+<div class="modal fade modal-cargar" tabindex="-1" role="dialog" aria-hidden="true" data-backdrop="static">
+    <div class="modal-dialog">
+        <form class="form-horizontal form-cargar-arbol" role="form" name="form-cargar-arbol" method="post" action="#">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4 class="modal-title">Load Tree Archive</h4>
+                </div>
+                <div class="modal-body">
+                    <div class="row">
+                        <div class="col-md-12 row-content">
+                            <div class="form-group">
+                                <label class="col-sm-4 control-label">Select file:</label>
+                                <div class="col-sm-8">
+                                    <input type="file" class="form-control file-tree" name="filetree" />
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <input type="hidden" class="hdn-nodo-seleccionado" />
+                    <input type="hidden" class="hdn-nodo-padre" name="nodo" />
+                    <button type="button" class="btn btn-default closemodal" data-dismiss="modal">Close</button>
+                    <button title="Load Tree" type="submit" class="btn btn-primary btn-comentar-nodo">Load Tree</button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+
+
+<div class="modal fade modal-errores" tabindex="-1" role="dialog" aria-hidden="true" data-backdrop="static">
+    <div class="modal-dialog">
+        <form class="form-horizontal form-errores" role="form" name="form-errores" method="post" action="#">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4 class="modal-title">Errores</h4>
+                </div>
+                <div class="modal-body">
+                    <div class="row">
+                        <div class="col-md-12 row-content">
+                            <div class="list-group">
+                                <a href="#" class="list-group-item list-group-item-danger">
+                                    <h5 class="list-group-item-heading">Loop</h5>
+                                    <p class="list-group-item-text">The required attribute 'url' is missing</p>
+                                </a>
+                                <a href="#" class="list-group-item list-group-item-danger">
+                                    <h5 class="list-group-item-heading">Loop</h5>
+                                    <p class="list-group-item-text">The required attribute 'url' is missing</p>
+                                </a>
+                                <a href="#" class="list-group-item list-group-item-danger">
+                                    <h5 class="list-group-item-heading">Loop</h5>
+                                    <p class="list-group-item-text">The required attribute 'url' is missing</p>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">                    
+                    <button type="button" class="btn btn-default closemodal" data-dismiss="modal">Close</button>                    
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+
+
+
+<div class="modal fade modal-test" tabindex="-1" role="dialog" aria-hidden="true" data-backdrop="static">
+    <div class="modal-dialog">
+        <form class="form-horizontal form-test" role="form" name="form-test" method="post" action="#">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4 class="modal-title">Test Logic</h4>
+                </div>
+                <div class="modal-body">
+                    <div class="row">
+                        <div class="col-md-12 row-content">
+                            <div class="form-group">
+                                <label class="col-sm-4 control-label">To number:</label>
+                                <div class="col-sm-8">
+                                    <input type="text" class="form-control txt-tonumber" name="tonumber" />
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-sm-4 control-label">Label:</label>
+                                <div class="col-sm-8">
+                                    <input type="text" class="form-control txt-label" name="label" />
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">                    
+                    <input type="hidden" class="hdn-logic" name="idLogic" />
+                    <button type="button" class="btn btn-default closemodal" data-dismiss="modal">Close</button>
+                    <button title="Test Logic" type="submit" class="btn btn-primary"><span class="glyphicon glyphicon-earphone"></span> Test Logic</button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>

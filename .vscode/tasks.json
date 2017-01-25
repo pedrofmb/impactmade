@@ -1,0 +1,20 @@
+{
+    "version": "0.1.0",
+    "command": "node",
+    "isShellCommand": true,
+    "showOutput": "always",
+    "suppressTaskName": true,
+    "tasks": [
+        {
+            "taskName": "GenerateTypescript",
+            "args": [
+               "./dev_scripts/build.js" 
+            ], 
+            "isBuildCommand": true,
+            "isWatching": false,
+            "problemMatcher": [
+                "$tsc"
+            ]
+        }
+    ]
+}
