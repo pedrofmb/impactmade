@@ -11,4 +11,8 @@ The following packages can be installed automatically by typing `npm update` in 
 
 For WebserRun in app path
 
-* gulp webserver
+*> `gulp webserver`
+
+Import git
+
+*> `git clone https://github.com/pedrofmb/impactmade.git`
