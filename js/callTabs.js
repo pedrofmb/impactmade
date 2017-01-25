@@ -58,11 +58,11 @@ var callTabs;
         return Accordion;
     }());
     callTabs.Accordion = Accordion;
-    var MainPanel;
     (function (MainPanel) {
         MainPanel[MainPanel["ManageVariables"] = 0] = "ManageVariables";
         MainPanel[MainPanel["AssignValuesToVariables"] = 1] = "AssignValuesToVariables";
-    })(MainPanel = callTabs.MainPanel || (callTabs.MainPanel = {}));
+    })(callTabs.MainPanel || (callTabs.MainPanel = {}));
+    var MainPanel = callTabs.MainPanel;
     var VirtualNumber = (function () {
         function VirtualNumber(sid, number) {
             this.Sid = sid;
@@ -684,7 +684,7 @@ var callTabs;
             });
             charsIds = charsIds.substr(0, charsIds.length - 1);
             panelVariable.SelectText.Accordion.Services.Local.GetVariableValues(charsIds, panelVariable.PhoneNumber, function (dataSucess) {
-                var _loop_1 = function (i_1) {
+                var _loop_1 = function(i_1) {
                     var idVariable = dataSucess[i_1]["IdVariable"];
                     var valueVariable = dataSucess[i_1]["Value"];
                     var items = $("#" + tableId + " tr.trAssign");
@@ -844,18 +844,18 @@ var callTabs;
         return panelVariables;
     }());
     callTabs.panelVariables = panelVariables;
-    var varType;
     (function (varType) {
         varType[varType["String"] = 0] = "String";
         varType[varType["Numeric"] = 1] = "Numeric";
         varType[varType["Options"] = 2] = "Options";
-    })(varType = callTabs.varType || (callTabs.varType = {}));
-    var Panel;
+    })(callTabs.varType || (callTabs.varType = {}));
+    var varType = callTabs.varType;
     (function (Panel) {
         Panel[Panel["Manage"] = 0] = "Manage";
         Panel[Panel["Assign"] = 1] = "Assign";
         Panel[Panel["History"] = 2] = "History";
-    })(Panel = callTabs.Panel || (callTabs.Panel = {}));
+    })(callTabs.Panel || (callTabs.Panel = {}));
+    var Panel = callTabs.Panel;
     var Variable = (function () {
         function Variable(id, name, dateV, variableType, options) {
             this.Id = id;
@@ -870,11 +870,11 @@ var callTabs;
 })(callTabs || (callTabs = {}));
 var callTabs;
 (function (callTabs) {
-    var actionButton;
     (function (actionButton) {
         actionButton[actionButton["New"] = 0] = "New";
         actionButton[actionButton["Update"] = 1] = "Update";
-    })(actionButton = callTabs.actionButton || (callTabs.actionButton = {}));
+    })(callTabs.actionButton || (callTabs.actionButton = {}));
+    var actionButton = callTabs.actionButton;
     var SelectText = (function () {
         function SelectText(accordion, parent, panelPage, numberClient) {
             if (numberClient === void 0) { numberClient = ""; }

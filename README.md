@@ -18,9 +18,13 @@ Import git
 
 * `git clone https://github.com/pedrofmb/impactmade.git`
 
-Open Visual Studio Code from Console
+Open Visual Studio Code (VSC) from Console
 
 * `code .`
+
+Compile typescript code in VSC
+
+* Ctrl + shift + b
 
 Programs for gestion Console
 

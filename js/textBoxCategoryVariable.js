@@ -338,12 +338,12 @@ var PluginFactory;
         return Category;
     }());
     PluginFactory.Category = Category;
-    var varType;
     (function (varType) {
         varType[varType["String"] = 0] = "String";
         varType[varType["Numeric"] = 1] = "Numeric";
         varType[varType["Options"] = 2] = "Options";
-    })(varType = PluginFactory.varType || (PluginFactory.varType = {}));
+    })(PluginFactory.varType || (PluginFactory.varType = {}));
+    var varType = PluginFactory.varType;
     var Variable = (function () {
         function Variable(id, name, dateV, variableType, options) {
             this.Id = id;
