@@ -17,3 +17,11 @@ For WebserRun in app path
 Import git
 
 * `git clone https://github.com/pedrofmb/impactmade.git`
+
+Open Visual Studio Code from Console
+
+* `code .`
+
+Programs for gestion Console
+
+* https://conemu.github.io/
