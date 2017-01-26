@@ -25,6 +25,7 @@ Open Visual Studio Code (VSC) from Console
 Compile typescript code in VSC
 
 * Ctrl + shift + b
+* Select Task => Ctrl + shift + p
 
 Programs for gestion Console
 
