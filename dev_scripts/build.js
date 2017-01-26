@@ -14,6 +14,7 @@ var tsc = function()
 {
     tscompile("./typings/callTabs");
     tscompile("./typings/pluginCategories")
+    tscompile("./typings/treeViewCore");
 }
 
 var build = function()
