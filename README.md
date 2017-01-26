@@ -30,3 +30,8 @@ Compile typescript code in VSC
 Programs for gestion Console
 
 * https://conemu.github.io/
+
+Others
+
+* https://www.typescriptlang.org/docs/handbook/compiler-options.html
+* tsc -p C:\Users\LuisDMA\Documents\ImpactMade2\impactmade\typings\treeViewCore (example to compile)

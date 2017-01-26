@@ -1,10 +1,30 @@
 declare module treeViewCore {
+    interface IdataManage {
+        Parent: number;
+        Id: number;
+        NodeId: number;
+        Tag: string;
+        Expanded: any;
+        Iconexpanded: any;
+        Icon: string;
+        Attrs: any;
+    }
+    interface IRenderNode {
+        Queue: Array<any>;
+        Indent: number;
+        IconExpanded: string;
+        IconCollapsed: string;
+    }
     class Node {
         Data: IdataManage;
         Parent: string;
-        Childrens: any[];
-        constructor(data: any);
-        CambiarIndice(tree: Tree, parentId: string): void;
+        Childrens: Node[];
+        constructor(data: IdataManage);
+        CambiarIndice(tree: Tree, parentId: number): void;
+        ReconstruirIndices(tree: Tree): void;
+        GetIndentTpl(numIndex: any): string;
+        RenderUI(): string;
+        RenderUINode(options: IRenderNode): string;
     }
 }
 declare module treeViewCore {
@@ -12,11 +32,6 @@ declare module treeViewCore {
         Root: Node;
         countNode: number;
         constructor(data: any);
-    }
-    interface IdataManage {
-        Parent: string;
-        Id: number;
-        NodeId: number;
     }
 }
 declare module treeViewCore {

@@ -11,11 +11,4 @@ module treeViewCore
             this.countNode = 1;
         }
     }
-
-    export interface IdataManage
-    {
-        Parent : string;
-        Id : number;
-        NodeId : number;
-    }
 }
