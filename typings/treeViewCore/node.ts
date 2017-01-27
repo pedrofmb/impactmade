@@ -166,5 +166,42 @@ module treeViewCore
                 return tpl; 
             }
         }
+
+        public UpdateNodeData (nodeId: number, data: any)
+        {
+            
+        }
+
+        public CopyNodeAndChildrens (arrClone: Array<Node>)
+        {
+            for (var j = 0; j < arrClone.length; j++)
+            {
+                var cloneObject = $.extend(true, {}, arrClone[j]);
+                var node = new Node(cloneObject.data);
+
+                if (this.Childrens.length > 0) {
+                    var arrClone1 = $.extend(true, [], cloneObject.Childrens);
+                    this.CopyNodeAndChildrens(arrClone1);
+                }
+
+                this.Childrens.push(node);
+            }
+        }
+
+        public Expcol (expcol: any)
+        {
+            let recurse = (currentNode : Node) : void => {
+                for (var i = 0, length = currentNode.Childrens.length; i < length; i++) {
+                    recurse(currentNode.Childrens[i]);
+                }
+
+                if (currentNode != this) {
+                    currentNode.Data.Expanded = expcol;
+                    currentNode.Data.Iconexpanded = expcol;
+                }
+            };
+
+            recurse(this);
+        }
     }
 }

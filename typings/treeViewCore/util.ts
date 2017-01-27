@@ -33,7 +33,5 @@ module treeViewCore
             else
                 return Logic[type][tag + "Type"];
         }
-
-        
     }
 }
