@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html>
 <head>
 
@@ -149,7 +149,7 @@
         <div role="main" class="main" id="mainElement">
             <hr class="tall">
             <div class="container">
-                <h2><b>Variables Admin</b></h2>
+                <h2><b>Devices</b></h2>
             </div>
 
             <div class="container">
@@ -273,15 +273,14 @@
     <script type="text/javascript" src="js/bootstrap-tour.min.js"></script>
     <script type="text/javascript" src="js/admin.js"></script>
     <script type="text/javascript" src="js/ajaxCore.js"></script>
-    <script type="text/javascript" src="js/callTabs.js"></script>
+    <script type="text/javascript" src="js/devices.js"></script>
 
     <script>
 
         $("#userTab").html("");
         $("#userTab").html(localStorage["email"]);
 
-        var callManage = new callTabs.Accordion("tabPanel");
-        callManage.LoadVirtualNumbers(callTabs.MainPanel.ManageVariables);
+        var devicesManage = new devices.AdminDevices("tabPanel");
         CalculateMainHeight();
 
     </script>

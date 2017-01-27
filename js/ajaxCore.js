@@ -692,13 +692,57 @@ OnCallTerminated: function( successFunction, errorFunction) {$.ajax({
                                 error: errorFunction
                             });
 },
-CanWeSshIntoPbx: function( successFunction, errorFunction) {$.ajax({
-                                url: Services.PBX.BaseUrl + '/' + Services.PBX.Name + '/CanWeSshIntoPbx',
+DownloadSipConf: function(id, successFunction, errorFunction) {$.ajax({
+                                url: Services.PBX.BaseUrl + '/' + Services.PBX.Name + '/DownloadSipConf',
+                                headers: { 'x-token': localStorage['x-token'] },
+                                method: 'POST',
+                                crossDomain: true,
+                                dataType: 'text',
+                                data: {'id': id},
+                                success: successFunction,
+                                error: errorFunction
+                            });
+},
+DownloadDialplanConf: function(id, successFunction, errorFunction) {$.ajax({
+                                url: Services.PBX.BaseUrl + '/' + Services.PBX.Name + '/DownloadDialplanConf',
+                                headers: { 'x-token': localStorage['x-token'] },
+                                method: 'POST',
+                                crossDomain: true,
+                                dataType: 'text',
+                                data: {'id': id},
+                                success: successFunction,
+                                error: errorFunction
+                            });
+},
+GetModelsOfPhonesThatCanBeConfiguredRemotely: function( successFunction, errorFunction) {$.ajax({
+                                url: Services.PBX.BaseUrl + '/' + Services.PBX.Name + '/GetModelsOfPhonesThatCanBeConfiguredRemotely',
                                 headers: { 'x-token': localStorage['x-token'] },
                                 method: 'POST',
                                 crossDomain: true,
                                 dataType: 'json',
                                 data: {},
+                                success: successFunction,
+                                error: errorFunction
+                            });
+},
+CreateExecutableToConfigureIpPhone: function(idIpPhone,ipPhoneModel,ipAddressOfIpPhone, successFunction, errorFunction) {$.ajax({
+                                url: Services.PBX.BaseUrl + '/' + Services.PBX.Name + '/CreateExecutableToConfigureIpPhone',
+                                headers: { 'x-token': localStorage['x-token'] },
+                                method: 'POST',
+                                crossDomain: true,
+                                dataType: 'text',
+                                data: {'idIpPhone': idIpPhone, 'ipPhoneModel': ipPhoneModel, 'ipAddressOfIpPhone': ipAddressOfIpPhone},
+                                success: successFunction,
+                                error: errorFunction
+                            });
+},
+DownloadExecuatbleConfiguration: function(id, successFunction, errorFunction) {$.ajax({
+                                url: Services.PBX.BaseUrl + '/' + Services.PBX.Name + '/DownloadExecuatbleConfiguration',
+                                headers: { 'x-token': localStorage['x-token'] },
+                                method: 'POST',
+                                crossDomain: true,
+                                dataType: 'application/octet-stream',
+                                data: {'id': id},
                                 success: successFunction,
                                 error: errorFunction
                             });
@@ -714,17 +758,6 @@ UpdateSip: function( successFunction, errorFunction) {$.ajax({
                                 error: errorFunction
                             });
 },
-DownloadSipConf: function(id, successFunction, errorFunction) {$.ajax({
-                                url: Services.PBX.BaseUrl + '/' + Services.PBX.Name + '/DownloadSipConf',
-                                headers: { 'x-token': localStorage['x-token'] },
-                                method: 'POST',
-                                crossDomain: true,
-                                dataType: 'text',
-                                data: {'id': id},
-                                success: successFunction,
-                                error: errorFunction
-                            });
-},
 UpdateDialplan: function( successFunction, errorFunction) {$.ajax({
                                 url: Services.PBX.BaseUrl + '/' + Services.PBX.Name + '/UpdateDialplan',
                                 headers: { 'x-token': localStorage['x-token'] },
@@ -736,13 +769,13 @@ UpdateDialplan: function( successFunction, errorFunction) {$.ajax({
                                 error: errorFunction
                             });
 },
-DownloadDialplanConf: function(id, successFunction, errorFunction) {$.ajax({
-                                url: Services.PBX.BaseUrl + '/' + Services.PBX.Name + '/DownloadDialplanConf',
+CanWeSshIntoPbx: function( successFunction, errorFunction) {$.ajax({
+                                url: Services.PBX.BaseUrl + '/' + Services.PBX.Name + '/CanWeSshIntoPbx',
                                 headers: { 'x-token': localStorage['x-token'] },
                                 method: 'POST',
                                 crossDomain: true,
-                                dataType: 'text',
-                                data: {'id': id},
+                                dataType: 'json',
+                                data: {},
                                 success: successFunction,
                                 error: errorFunction
                             });
@@ -802,7 +835,7 @@ RemoveIpPhone: function(idIpPhone, successFunction, errorFunction) {$.ajax({
                                 error: errorFunction
                             });
 },
-CreaateExtension: function(idIpPhone,extension, successFunction, errorFunction) {$.ajax({
+CreateExtension: function(idIpPhone,extension, successFunction, errorFunction) {$.ajax({
                                 url: Services.PBX.BaseUrl + '/' + Services.PBX.Name + '/CreaateExtension',
                                 headers: { 'x-token': localStorage['x-token'] },
                                 method: 'POST',

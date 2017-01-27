@@ -1,7 +1,12 @@
 /* Add here all your CSS customizations */
 .glyphicon-refresh-animate {
-    -animation: spin .7s infinite linear;
+    animation: spin .7s infinite linear;
     -webkit-animation: spin2 .7s infinite linear;
+}
+
+@keyframes spin2 {
+    from { -webkit-transform: rotate(0deg);}
+    to { -webkit-transform: rotate(360deg);}
 }
 
 @-webkit-keyframes spin2 {
@@ -330,4 +335,96 @@
     color: #FE7402;
     font-weight: bolder;
     background-color: black;
+}
+
+.circle-green
+{
+  width: 12px;
+  height: 12px;
+  border: solid 1px #E4FAD5;
+  border-radius: 50%;
+  background-color: #68C32B;
+}
+
+.circle-red
+{
+  width: 12px;
+  height: 12px;
+  border: solid 1px #FFC1B4;
+  border-radius: 50%;
+  background-color: #FF5B38;
+}
+
+/* Firefox old*/
+@-moz-keyframes blink {
+    0% {
+        opacity:1;
+    }
+    50% {
+        opacity:0;
+    }
+    100% {
+        opacity:1;
+    }
+} 
+
+@-webkit-keyframes blink {
+    0% {
+        opacity:1;
+    }
+    50% {
+        opacity:0;
+    }
+    100% {
+        opacity:1;
+    }
+}
+
+/* IE */
+@-ms-keyframes blink {
+    0% {
+        opacity:1;
+    }
+    50% {
+        opacity:0;
+    }
+    100% {
+        opacity:1;
+    }
+} 
+
+/* Opera and prob css3 final iteration */
+@keyframes blink {
+    0% {
+        opacity:1;
+    }
+    50% {
+        opacity:0;
+    }
+    100% {
+        opacity:1;
+    }
+} 
+
+.blink-layer {
+    -moz-animation: blink normal 1s infinite ease-in-out; /* Firefox */
+    -webkit-animation: blink normal 1s infinite ease-in-out; /* Webkit */
+    -ms-animation: blink normal 1s infinite ease-in-out; /* IE */
+    animation: blink normal 1s infinite ease-in-out; /* Opera and prob css3 final iteration */
+}
+
+
+.tableAdminDevices tbody td
+{
+    text-align: center;
+}
+
+.tableAdminDevices tbody td>div
+{
+    margin: 0 auto;
+}
+
+.tableAdminDevices thead th
+{
+    text-align: center;
 }
