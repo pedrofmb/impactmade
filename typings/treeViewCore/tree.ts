@@ -94,7 +94,51 @@ module treeViewCore
             }
         }
 
-        
+        public Remove (data : IdataManage, fromData : number, traversal : any) : any
+        {
+            var tree : Tree = this;
+            var parent : any = null;
+            var childToRemove : any;
+            var index : number;
+
+            var callback : Function = function (node : Node)
+            {
+                if (node.Data.Id * 1 == fromData * 1) {
+                    parent = node;
+                }
+            };
+
+            tree.Contains(callback, traversal);
+
+            if (parent)
+            {
+                index = Util.FindIndex(parent.Childrens, data);
+
+                if (index === undefined)
+                {
+                    throw new Error('Node to remove does not exist.');
+                }
+                else{childToRemove = parent.Childrens.splice(index, 1);}
+            }
+            else {throw new Error('Parent does not exist.');}
+
+            return childToRemove;
+        }
+
+        public SortChildrens (parent : any, indexTo : number)
+        {
+            var lastValue : any = parent.Childrens[parent.Childrens.length -1];
+
+            for (var i = parent.Childrens.length - 1; i > 0; i--)
+            {
+                if (i == indexTo) break;
+            var value : any = parent.Childrens[i-1];
+            parent.Childrens[i] = value;
+            }
+
+            parent.Childrens[indexTo] = lastValue;
+
+        }        
 
     }
 

@@ -10,6 +10,8 @@ module treeViewCore
         Iconexpanded : any;
         Icon: string;
         Attrs: any;
+        Name : string;
+        Content: string;
     }
 
     export interface IRenderNode
@@ -202,6 +204,138 @@ module treeViewCore
             };
 
             recurse(this);
+        }
+
+        public RecorrerRecursivo () : any
+        {
+            var node : Node = this;
+            var obj : any;
+            var attrs = node.Data.Attrs;
+
+            var tplTag = '';
+            if (attrs)
+            {
+                for (var attr in attrs)
+                {
+                    if (attrs.hasOwnProperty(attr))
+                    {
+                        if (attrs[attr] !== "" && attrs[attr] !== "tag")
+                        {
+                            tplTag += ' <span class="label label-success">' + attr + '=' + attrs[attr] + '</span>';
+                        }
+                    }
+                }
+            }
+
+            if (node.Childrens.length > 0)
+            {
+                obj = {
+                    id: (node.Data.Id ? node.Data.Id : Math.random()),
+                    text: (node.Data.Tag ? node.Data.Tag : '?') + tplTag,// + '\t<button class="btn btn-xs btn-danger" onclick="mostrarErrores(event);" type="button">Errors <span class="badge">4</span></button>',
+                    href: '#' + (node.Data.Tag ? node.Data.Tag : ''),
+                    //description: '#' + (node.Data.description ? node.Data.description : ''),
+                    icon: node.Data.Icon,
+                    parent: node.Data.Parent,
+                    tags: [node.Childrens.length],
+                    nodes: []
+                };
+                for (var i = 0, length = node.Childrens.length; i < length; i++){
+                    obj.nodes.push(node.Childrens[i].RecorrerRecursivo());
+                }
+                return obj;
+            } else
+            {
+                obj = {
+                id: (node.Data.Id ? node.Data.Id : Math.random()),
+                text: (node.Data.Tag ? node.Data.Tag : '?') + tplTag,
+                href: '#' + (node.Data.Tag ? node.Data.Tag : ''),
+                //description: '#' + (node.data.description ? node.data.description : ''),
+                icon: node.Data.Icon,
+                parent: node.Data.Parent,
+                tags: [node.Childrens.length]
+                };
+                return obj;
+            }
+
+        }
+
+        public CreateXML (opts : any) : string
+        {
+            var node = this;
+            var tpl : string = '';
+            var myTag;
+            var showId = opts.showId;
+            var attrs : any = false,
+                attrs_string_arr : Array<any> = [],
+                attrs_string : string = '';
+
+            attrs = node.Data.Attrs || false;
+            if (attrs) {
+                for (var attr in attrs){
+                    if (attrs.hasOwnProperty(attr)){
+                        if (attrs[attr] !== ""){
+                            if (attr != "tag"){
+                                attrs_string_arr.push(attr + '="' + attrs[attr] + '"');
+                            }
+                        }
+                    }
+                }
+            }
+            attrs_string = attrs_string_arr.join(' ');
+
+            if (node.Childrens.length > 0){
+                myTag = node.Data.Tag;
+                if (node.Data.Name){
+                    myTag = node.Data.Name;
+                }
+
+                if (attrs_string.length > 0) {
+                    if (showId) {
+                        tpl += '<' + myTag + ' _id="' + node.Data.Id + '" ' + attrs_string + '>\r\n';
+                    } else {
+                        tpl += '<' + myTag + ' ' + attrs_string + '>\r\n';
+                    }
+                } else {
+                    if (showId) {
+                        tpl += '<' + myTag + ' _id="' + node.Data.Id + '">\r\n';
+                    } else {
+                        tpl += '<' + myTag + ' >\r\n';
+                    }
+                }
+
+                for (var i = 0, length = node.Childrens.length; i < length; i++) {
+                    tpl += '\t' + node.Childrens[i].CreateXML(opts);
+                }
+                tpl += '</' + myTag + '>\r\n';
+
+                return tpl;
+            }
+            else {
+                myTag = node.Data.Tag;
+                if (myTag == "comment") {
+                    tpl += '<!-- ' + node.Data.Content + ' -->\r\n';
+                } else {
+                    if (node.Data.Name) {
+                        myTag = node.Data.Name;
+                    }
+                    if (attrs_string.length > 0) {
+                        if(showId){
+                            tpl += '\t<' + myTag + ' _id="' + node.Data.Id + '" ' + attrs_string + '>\r\n';
+                        }else{
+                            tpl += '\t<' + myTag + ' ' + attrs_string + '>\r\n';
+                        }                
+                    } else {
+                        tpl += '\t<' + myTag + '>\r\n';
+                    }
+
+                    tpl += '\t' + node.Data.Content;
+                    tpl += '\t</' + myTag + '>\r\n';
+                }
+
+                return tpl;
+            }
+
+
         }
     }
 }

@@ -32,6 +32,13 @@ declare module treeViewCore {
         Root: Node;
         countNode: number;
         constructor(data: any);
+        TraverseBF (callback: Function) : void;
+        Contains (callback: Function, traversal: any) : void;
+        FindById (idnode: number) : Node;
+        Prepend ( data : IdataManage, toData : number, traversal : any) : void;
+        Add (data : IdataManage, childrens : Node[], toData: number, traversal : any) : void;
+        Remove (data : IdataManage, fromData : number, traversal : any) : Node;
+        SortChildrens (parent : any, indexTo : number) : void
     }
 }
 declare module treeViewCore {

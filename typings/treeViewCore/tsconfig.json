@@ -18,6 +18,7 @@
   },
   "include": [
     "../definitions/jquery.d.ts",
+    "../definitions/jquery-ui.d.ts",
     "../definitions/structures.d.ts",
     "./*.ts"
   ]
