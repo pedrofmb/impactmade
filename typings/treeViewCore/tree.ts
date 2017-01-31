@@ -11,7 +11,7 @@ module treeViewCore
             this.countNode = 1;
         }
 
-        public TraverseBF (callback: Function)
+        public TraverseBF (callback: Function) : void
         {
             var Queue : Queue;
 
@@ -28,7 +28,7 @@ module treeViewCore
             }
         }
 
-        public Contains (callback: Function, traversal: any)
+        public Contains (callback: Function, traversal: any) : void
         {
             traversal.call(this, callback);
         }
@@ -46,7 +46,7 @@ module treeViewCore
             return NodeResult;
         }
 
-        public Prepend ( data : IdataManage, toData : number, traversal : any)
+        public Prepend ( data : IdataManage, toData : number, traversal : any) : void
         {
             var child : Node = new Node(data);
             var parent : any = null;
@@ -94,11 +94,11 @@ module treeViewCore
             }
         }
 
-        public Remove (data : IdataManage, fromData : number, traversal : any) : any
+        public Remove (data : IdataManage, fromData : number, traversal : any) : Node
         {
             var tree : Tree = this;
             var parent : any = null;
-            var childToRemove : any;
+            var childToRemove : Node;
             var index : number;
 
             var callback : Function = function (node : Node)
@@ -125,7 +125,7 @@ module treeViewCore
             return childToRemove;
         }
 
-        public SortChildrens (parent : any, indexTo : number)
+        public SortChildrens (parent : any, indexTo : number) : void
         {
             var lastValue : any = parent.Childrens[parent.Childrens.length -1];
 
