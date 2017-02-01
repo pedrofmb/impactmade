@@ -49,6 +49,8 @@ declare module devices {
         private BuildEditFormIPhone(ipPhone);
         private BuildFormExtension(idPhone);
         private BuildTableConferences();
+        private UpdateSip();
+        private UpdateDialplan();
         private SearchExtensionInIpPhone(extensions, ipPhone);
         private GetExtensionIpPhones(iphonesRef, functionBack?);
         private GetIpPhonesStatus();

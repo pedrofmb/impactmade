@@ -1318,6 +1318,24 @@ module devices
             });
         }
 
+        private UpdateSip() : void
+        {
+            Services.PBX.UpdateSip((success) => {
+
+            }, (error) => {
+
+            });
+        }
+
+        private UpdateDialplan() : void
+        {
+            Services.PBX.UpdateDialplan((success) => {
+
+            }, (error) => {
+                
+            });
+        }
+
         private SearchExtensionInIpPhone(extensions : Array<ExtensionForIPhone>, ipPhone : number) : {index : number; found : boolean}
         {
             if(extensions.length > 0)

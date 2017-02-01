@@ -940,6 +940,16 @@ var devices;
             }, function (error) {
             });
         };
+        AdminDevices.prototype.UpdateSip = function () {
+            Services.PBX.UpdateSip(function (success) {
+            }, function (error) {
+            });
+        };
+        AdminDevices.prototype.UpdateDialplan = function () {
+            Services.PBX.UpdateDialplan(function (success) {
+            }, function (error) {
+            });
+        };
         AdminDevices.prototype.SearchExtensionInIpPhone = function (extensions, ipPhone) {
             if (extensions.length > 0) {
                 for (var i = 0; i < extensions.length; i++) {
