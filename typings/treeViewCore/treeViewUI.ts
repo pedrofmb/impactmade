@@ -837,7 +837,7 @@ module treeViewCore
 
             Services.Local.ValidateXml(xml, isVoice,
                 function (result) {
-                    self.modalGuardar.$modal.modal("hide");
+                    this.ModalGuardar.$modal.modal("hide");
                     //console.log(result);
                     //console.log("success es: " + result.Sucess + "__");
                     
