@@ -4,6 +4,26 @@ interface Phrase
    es? : string;
 }
 
+interface DataType
+{
+    number: { value: "int" },
+    string: { value: "string" },
+    bool: { value: "boolean" }
+}
+
+interface Attribute
+{
+    name : string;
+    value? : any;
+    this.defaultValue = null;
+    this.friendlyName = new Phrase();
+    this.description = new Phrase();
+    this.dataType = DataType.number;
+    this.minValue = null;
+    this.maxValue = null;
+    this.required = false;
+}
+
 interface NodeElement
 {
     name : string;
@@ -13,13 +33,25 @@ interface NodeElement
     friendlyName? :Phrase;
     description? : Phrase;
     attributes? : any[];
-    children? : any[];
+    children? : NodeElement[];
+}
+
+interface ILogicVoice
+{
+    Logic : NodeElement;
+    Say : NodeElement;
+    Play : NodeElement;
+}
+
+interface ILogicSms
+{
+
 }
 
 interface LogicCore
 {
-   Logic : NodeElement;
-   Say : NodeElement;
+   Voice : ILogicVoice;
+   Sms : ILogicSms;
 }
 
 declare var Logic : LogicCore;

@@ -59,7 +59,7 @@ module treeViewCore
             return source;
         }
 
-        static ImValNew(tag : any, type : any) : any
+        static ImValNew(tag : any, type : any) : NodeElement
         {
             tag = this.Capitalize(tag);
             type = this.Capitalize(type);

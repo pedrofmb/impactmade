@@ -1,5 +1,12 @@
 module treeViewCore
 {
+
+    export interface IOption
+    {
+        Element : JQuery;
+        Tree : Tree;
+    }
+
     export class TreeView
     {
         public Defaults = {};
@@ -12,14 +19,13 @@ module treeViewCore
 
         public Self = this;
         public $This : JQuery = null ;
-        public Options : any;
+        public Options : IOption;
         public $ListSelected : JQuery = null;
         
-        constructor()
+        constructor(option : IOption)
         {
-            if (arguments[0] && typeof arguments[0] == "object") {
-              this.Options = Util.ExtendsDefault(this.Defaults, arguments[0]);
-            }
+            this.Options = option;
+            this.Init();
         }
 
         public SetTree (tree : Tree, reference : any)
@@ -28,12 +34,12 @@ module treeViewCore
                 this.Reference = reference;
             }
             
-       public GetTree ()
+            public GetTree ()
             {
                 return this.Tree;
             }
 
-      public RegisterEvents ()
+            public RegisterEvents ()
             {
                 var $treeview = this.$Element;
 
@@ -84,7 +90,7 @@ module treeViewCore
                 this.RegisterEvents();
             }
 
-            public RenderTree ()
+            public RenderTree () : void
             {
                 var tpl = '<ul class="list-group">';
                 tpl += this.Tree.Root.RenderUI();
@@ -150,7 +156,7 @@ module treeViewCore
                         {
                             $(this).sortable('cancel');
                             this.Methods.RenderTree();
-                            Util.msg_error("No se puede colocar un nodo como raiz");
+                            Util.msg_error("No se puede colocar un nodo como raiz", "toast-bottom-right");
                         }
                         else
                         {
@@ -185,7 +191,7 @@ module treeViewCore
                             if (!acceptNode) {
                                 $(this).sortable('cancel');
                                 this.Methods.RenderTree();
-                                msg_error("No se puede colocar el nodo " + nodeCurrent.Data.Tag + " en el nodo padre " + nodeParentTo.Data.Tag);
+                                Util.msg_error("No se puede colocar el nodo " + nodeCurrent.Data.Tag + " en el nodo padre " + nodeParentTo.Data.Tag, "toast-bottom-right");
                                 return;
                             }
                             
@@ -224,5 +230,88 @@ module treeViewCore
                 $ul.disableSelection();
 
             }
+
+            public GetSelectedNodeUI () : JQuery
+            {
+                return this.$ListSelected;
+            }
+
+            public HighlightNode (nodeId : Node)
+            {
+                var $treeview = this.$Element;
+                var $li = null;
+
+                $treeview.find("li").each(() => 
+                {
+                    if ($(this).data("nodeid") * 1 == nodeId.Data.Id * 1) {
+                        $li = $(this);
+                    }
+                });
+
+                if($li != null){
+                    $li.effect("highlight", {}, 500, function () { $li.effect("highlight", {}, 750, function () { $li.effect("highlight", {}, 1000); }) });
+                    return true;
+                }else{
+                    return false;
+                }
+            }
+
+            public GetSelectedNode () : Node
+            {
+                if (this.$ListSelected != null) {
+                    var nodeid = this.$ListSelected.data("nodeid") * 1;
+                    var nodeResult = this.Tree.FindById(nodeid);
+                    return nodeResult;
+                }
+                return null;
+            }
+
+            public DeleteNode (node : Node, idParent? : number) : void
+            {
+                this.Tree.Remove(node.Data, idParent, this.Tree.TraverseBF);
+            }
+
+            public CollapseAll () : void
+            {
+                this.Tree.Root.Data.Iconexpanded = false;
+                this.Tree.Root.Expcol(true);
+                this.RenderTree();
+            }
+
+            public ExpandAll () : void
+            {
+                this.Tree.Root.Data.Iconexpanded = true;
+                this.Tree.Root.Expcol(true);
+                this.RenderTree();
+            }
+
+            public CollapseNode (nodeId) : void
+            {
+                var nodeResult : Node;
+                this.Tree.Contains((node: Node) =>
+                {
+                    if (node.Data.Id == nodeId) { nodeResult = node; }
+                }, this.Tree.TraverseBF);
+                if (nodeResult) {
+                    nodeResult.Data.Iconexpanded = false;
+                    nodeResult.Expcol(false);
+                }
+                this.RenderTree();
+            }
+
+            public ExpandNode (nodeId) : void
+            {
+                var nodeResult : Node;
+                this.Tree.Contains((node : Node) =>
+                {
+                    if (node.Data.Id == nodeId) { nodeResult = node; }
+                }, this.Tree.TraverseBF);
+                if (nodeResult) {
+                    nodeResult.Data.Iconexpanded = true;
+                    nodeResult.Expcol(true);
+                }
+                this.RenderTree();
+            }
+
     }
 }

@@ -3,6 +3,7 @@ module treeViewCore
     export interface IdataManage
     {
         Parent : number;
+        ParentId : number;
         Id : number;
         NodeId : number;
         Tag : string;
@@ -12,6 +13,7 @@ module treeViewCore
         Attrs: any;
         Name : string;
         Content: string;
+        Description : string;
     }
 
     export interface IRenderNode
@@ -27,12 +29,16 @@ module treeViewCore
         public Data : IdataManage;
         public Parent: string;
         public Childrens : Node[];
+        public Name : string;
+        public FriendlyName : string;
 
         constructor(data : IdataManage)
         {
             this.Data = data;
             this.Parent = null;
             this.Childrens = new Array<any>();
+            this.Name = null;
+            this.FriendlyName = null;
         }
 
         public CambiarIndice(tree : Tree, parentId : number) : void
