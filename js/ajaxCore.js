@@ -836,7 +836,7 @@ RemoveIpPhone: function(idIpPhone, successFunction, errorFunction) {$.ajax({
                             });
 },
 CreateExtension: function(idIpPhone,extension, successFunction, errorFunction) {$.ajax({
-                                url: Services.PBX.BaseUrl + '/' + Services.PBX.Name + '/CreaateExtension',
+                                url: Services.PBX.BaseUrl + '/' + Services.PBX.Name + '/CreateExtension',
                                 headers: { 'x-token': localStorage['x-token'] },
                                 method: 'POST',
                                 crossDomain: true,

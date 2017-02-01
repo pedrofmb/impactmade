@@ -13,8 +13,8 @@ var tscompile = function(folder)
 var tsc = function()
 {
     tscompile("./typings/callTabs");
-    tscompile("./typings/pluginCategories")
-    tscompile("./typings/treeViewCore");
+    tscompile("./typings/pluginCategories");
+    //tscompile("./typings/treeViewCore");
     tscompile("./typings/devices");
 }
 

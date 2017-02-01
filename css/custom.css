@@ -417,6 +417,7 @@
 .tableAdminDevices tbody td
 {
     text-align: center;
+    vertical-align: middle !important;
 }
 
 .tableAdminDevices tbody td>div
@@ -425,6 +426,22 @@
 }
 
 .tableAdminDevices thead th
+{
+    text-align: center;
+}
+
+.tableExtensions tbody td
+{
+    text-align: center;
+    vertical-align: middle !important;
+}
+
+.tableExtensions tbody td>div
+{
+    margin: 0 auto;
+}
+
+.tableExtensions thead th
 {
     text-align: center;
 }

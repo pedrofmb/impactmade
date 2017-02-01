@@ -26,20 +26,31 @@ declare module devices {
         Id: number;
         IdIpPhone: number;
     }
+    interface IConference {
+        Extension: string;
+        Id: number;
+        Name: string;
+    }
     class ExtensionForIPhone {
         IdIpPhone: number;
-        Extensions: Array<string>;
+        Extensions: Array<IExtension>;
     }
     class AdminDevices {
         MainContainer: JQuery;
         private IpPhonesStatus;
         constructor(containerId: string);
         private BuildMainTabs();
-        private AddIpPhone();
+        private BuildFormEditConference(conference);
+        private BuildFormAddConference();
+        private BuildFormAddIpPhone();
+        private SubmitDataIpPhone(edit);
+        private SubmitNewExtension(IdIpPhone, extension);
         private BuildTableIpPhones();
+        private BuildEditFormIPhone(ipPhone);
+        private BuildFormExtension(idPhone);
         private BuildTableConferences();
         private SearchExtensionInIpPhone(extensions, ipPhone);
-        private GetExtensionIpPhones(iphonesRef);
+        private GetExtensionIpPhones(iphonesRef, functionBack?);
         private GetIpPhonesStatus();
     }
 }
